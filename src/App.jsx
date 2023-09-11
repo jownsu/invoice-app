@@ -1,8 +1,10 @@
-function App() {
+import SideNav from "./components/side_nav/side_nav"
+
+const App = () => {
     return (
-        <div>
-            <h1>Invoice App</h1>
-        </div>
+        <>
+            <SideNav />
+        </>
     )
 }
 
