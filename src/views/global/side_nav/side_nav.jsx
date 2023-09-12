@@ -1,4 +1,7 @@
+/* React */
 import React from "react";
+
+/* CSS */
 import "./side_nav.scss";
 
 const SideNav = () => {

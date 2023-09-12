@@ -1,0 +1,134 @@
+@import "../../../assets/sass/variables";
+
+
+.home_header{
+    display: flex;
+    align-items: center;
+    gap: 2.7rem;
+
+    .total_invoice{
+        margin-right: auto;
+
+        h1{
+            font-size: 3.6rem;
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: -1.125px;
+            margin-bottom: .7rem;
+        }
+
+        p{
+            color: $color_grey_2;
+            font-size: 1.3rem;
+            font-weight: 500;
+            line-height: 1.5rem;
+            letter-spacing: -0.1px;
+        }
+    }
+
+    .status_filter{
+        button{
+            color: $color_black;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            &:active{
+                background: none;
+                color: $color_black;
+            }
+
+            &::after{
+                background: url("./images/icon-arrow-down.svg") no-repeat center;
+                border: none;
+                height: 2rem;
+                width: 2rem;
+                margin-left: 0;
+                vertical-align: 0;
+                transition: transform .2s;
+            }
+
+            &[aria-expanded="true"]::after{
+                transform: rotate(180deg);
+            }
+        }
+
+        .status_filter_menu{
+            width: 19.2rem;
+            padding: 2rem 2.4rem;
+            border-radius: 8px;
+            box-shadow: 0px 10px 20px 0px rgba(72, 84, 159, 0.25);
+            border: none;
+            left: 50% !important;
+            transform: translate(-50%, 32px) !important;
+
+            .filter_option{
+                &:not(:last-child){
+                    margin-bottom: .8rem;
+                }
+
+                &:hover{
+                    label .checkbox_container{
+                        border: 1px solid $color_primary_1;
+                    }
+                }
+
+                input{
+                    display: none;
+                }
+
+                input[type="checkbox"]:checked + label .checkbox_container{
+                    background: $color_primary_1 url("/images/icon-check.svg") no-repeat center;
+                }
+
+                label{
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    display: flex;
+                    gap: 1.2rem;
+                    align-items: center;
+                    cursor: pointer;
+                    .checkbox_container{
+                        height: 1.6rem;
+                        width: 1.6rem;
+                        border-radius: 2px;
+                        background: $color_grey_1;
+                    }
+                }
+            }
+        }
+    }
+
+    .new_invoice_btn{
+        font: 700 1.5rem $font_primary;
+        border-radius: 2.4rem;
+        width: 15rem;
+        height: 4.8rem;
+        background: $color_primary_1;
+        color: $color_white;
+        border: none;
+        outline: none;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: .8rem;
+        gap: 1rem;
+        transition: all .2s;
+        
+        &:hover{
+            background: $color_primary_2;
+        }
+
+        span{
+            display: inline-block;
+            border-radius: 50%;
+            height: 3.2rem;
+            width: 3.2rem;
+            background: $color_white url("./images/icon-plus.svg") no-repeat center;
+        }
+    }
+}

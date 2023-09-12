@@ -1,6 +1,14 @@
+@import "./variables";
+
 .side-nav{
     position: fixed;
     left: 0;
     top: 0;
     height: 100vh;
+}
+
+main{
+    margin: 0 auto;
+    width: 100%;
+    max-width: $bp_large;
 }
