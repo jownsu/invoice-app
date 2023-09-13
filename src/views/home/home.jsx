@@ -5,6 +5,7 @@ import React from "react";
 import HomeHeader from "./components/home_header/home_header.component";
 import List from "../global/list/list";
 import InvoiceItem from "./components/invoice_item/invoice_item.component";
+import NoInvoice from "./components/no_invoice/no_invoice.component";
 
 /* CSS */
 import styles from "./home.module.scss";
@@ -21,6 +22,7 @@ const Home = () => {
                 items={data}
                 resource_name={"invoice"}
                 itemComponent={InvoiceItem}
+                noItemComponent={NoInvoice}
             />
         </div>
     )

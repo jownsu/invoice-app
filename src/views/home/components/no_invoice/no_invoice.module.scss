@@ -1,0 +1,27 @@
+@import "../../../../assets/sass/variables";
+
+.no_invoice{
+    margin-top: 14.4rem;
+    text-align: center;
+
+    img{
+        margin-bottom: 6.3rem;
+    }
+    
+    h3{
+        font-size: 2.4rem;
+        color: $color_black;
+        font-weight: 700;
+        margin-bottom: 1.7rem;
+    }
+
+    p{
+        color: $color_grey_2;
+        font-size: 1.3rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+        letter-spacing: -.1px;
+        width: 20rem;
+        margin: 0 auto;
+    }
+}
