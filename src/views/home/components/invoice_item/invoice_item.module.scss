@@ -1,0 +1,121 @@
+$color_paid: #33D69F;
+$color_pending: #FF8F00;
+$color_draft: #373B53;
+$opacity_value: 0.0571;
+
+@import "../../../../assets/sass/variables";
+
+.invoice_item{
+    display: flex;
+    font-size: 1.5rem;
+    align-items: center;
+    height: 7.2rem;
+    background-color: $color_white;
+    box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
+    border-radius: 8px;
+    margin-bottom: 1.6rem;
+    padding: 0 2rem 0 3.1rem;
+
+    p{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-right: 1rem;
+    }
+
+    .id{
+        color: $color_black;
+        font-weight: 700;
+        width: 9.3rem;
+
+        span{
+            color: $color_grey_3;
+        }
+    }
+
+    .payment_due,
+    .client_name{
+        color: $color_grey_2;
+        font-size: 1.3rem;
+    }
+
+    .payment_due{
+        width: 13.8rem;
+    }
+
+    .client_name{
+        width: 10rem;
+        margin-right: auto;
+    }
+
+    .total{
+        width: 10rem;
+        color: $color_black;
+        font-weight: 700;
+        text-align: right;
+        margin-right: 3.8rem;
+    }
+
+    .status{
+        color: $color_black;
+        font-weight: 700;
+        background: rgba($color_black, $opacity_value);
+        height: 4rem;
+        width: 10.4rem;
+        display: grid;
+        place-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .8rem;
+        border-radius: 6px;
+        margin-right: 1.5rem;
+
+        .status_dot{
+            content: "";
+            height: .8rem;
+            width: .8rem;
+            border-radius: 50%;
+            background: $color_black;
+        }
+
+        &.Paid{
+            background: rgba($color_paid, $opacity_value);
+            color: $color_paid;
+
+            .status_dot{
+                background: $color_paid;
+            }
+        }
+
+        &.Pending{
+            background: rgba($color_pending, $opacity_value);
+            color: $color_pending;
+
+            .status_dot{
+                background: $color_pending;
+            }
+        }
+
+        &.Draft{
+            background: rgba($color_draft, $opacity_value);
+            color: $color_draft;
+
+            .status_dot{
+                background: $color_draft;
+            }
+        }
+    }
+
+    button{
+        background: none;
+        border: none;
+        outline: none;
+        .right_arrow_icon{
+            display: inline-block;
+            height: 1rem;
+            width: 1rem;
+            background: url("./images/icon-arrow-right.svg") no-repeat center;
+        }
+    }
+}
