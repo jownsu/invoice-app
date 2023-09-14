@@ -1,3 +1,5 @@
+/* React */
+import { useEffect } from "react";
 /* Plugins */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -8,6 +10,14 @@ import SideNav from "./views/global/side_nav/side_nav";
 import Home from "./views/home/home";
 
 const App = () => {
+
+    useEffect(() => {
+        const dark_mode = localStorage.getItem("dark_mode");
+        if(dark_mode === "true"){
+            document.body.className = "dark";
+        }
+    }, []);
+
     return (
         <BrowserRouter>
             <SideNav />

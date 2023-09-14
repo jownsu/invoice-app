@@ -1,6 +1,7 @@
 $color_paid: #33D69F;
 $color_pending: #FF8F00;
 $color_draft: #373B53;
+$color_draft_dark: #DFE3FA;
 $opacity_value: 0.0571;
 
 @import "../../../../assets/sass/variables";
@@ -76,34 +77,22 @@ $opacity_value: 0.0571;
             height: .8rem;
             width: .8rem;
             border-radius: 50%;
-            background: $color_black;
+            background: currentColor;
         }
 
         &.Paid{
             background: rgba($color_paid, $opacity_value);
             color: $color_paid;
-
-            .status_dot{
-                background: $color_paid;
-            }
         }
 
         &.Pending{
             background: rgba($color_pending, $opacity_value);
             color: $color_pending;
-
-            .status_dot{
-                background: $color_pending;
-            }
         }
 
         &.Draft{
             background: rgba($color_draft, $opacity_value);
             color: $color_draft;
-
-            .status_dot{
-                background: $color_draft;
-            }
         }
     }
 
@@ -117,5 +106,28 @@ $opacity_value: 0.0571;
             width: 1rem;
             background: url("./images/icon-arrow-right.svg") no-repeat center;
         }
+    }
+}
+
+:global(.dark_mode){
+
+    .invoice_item{
+        background-color: $color_primary_dark_1;
+        color: $color_white;
+
+        .status.Draft{
+            background: rgba($color_draft_dark, $opacity_value);
+            color: $color_draft_dark;
+        }
+    }
+
+    .id,
+    .total{
+        color: $color_white;
+    }
+
+    .payment_due,
+    .client_name{
+        color: $color_grey_1;
     }
 }

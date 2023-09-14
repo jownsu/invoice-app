@@ -28,4 +28,8 @@ body{
     font-weight: 400;
     line-height: 1.6;
     background-color: $color_light_bg;
+
+    &.dark_mode{
+        background-color: $color_dark_bg;
+    }
 }

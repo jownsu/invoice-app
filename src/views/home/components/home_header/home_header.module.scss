@@ -36,6 +36,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            transition: none;
 
             &:active{
                 background: none;
@@ -129,6 +130,40 @@
             height: 3.2rem;
             width: 3.2rem;
             background: $color_white url("./images/icon-plus.svg") no-repeat center;
+        }
+    }
+}
+
+:global(.dark_mode){
+    .home_header{
+        .total_invoice{
+            h1{
+                color: $color_white;
+            }
+            p{
+                color: $color_grey_1;
+            }
+        }
+
+        .status_filter{
+            button{
+                color: $color_white;
+            }
+
+            .status_filter_menu{
+                background: $color_primary_dark_2;
+                box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.25);
+
+                .filter_option{
+                    label{
+                        color: $color_white;
+
+                        .checkbox_container{
+                            background: $color_primary_dark_1;
+                        }
+                    }
+                }
+            }
         }
     }
 }
