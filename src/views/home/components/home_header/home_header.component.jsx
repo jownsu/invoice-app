@@ -3,6 +3,7 @@ import React from "react";
 
 /* Plugins */
 import Dropdown from 'react-bootstrap/Dropdown';
+import MediaQuery from "react-responsive";
 
 /* CSS */
 import styles from "./home_header.module.scss";
@@ -13,12 +14,17 @@ const HomeHeader = () => {
         <header className={styles.home_header}>
             <div className={styles.total_invoice}>
                 <h1>Invoices</h1>
-                <p>There are 7 total invoices</p>
+                <MediaQuery minWidth={601}>
+                    <p>There are 7 total invoices</p>
+                </MediaQuery>
+                <MediaQuery maxWidth={600}>
+                    <p>7 invoices</p>
+                </MediaQuery>
             </div>
 
             <Dropdown className={styles.status_filter}>
                 <Dropdown.Toggle>
-                    Filter By Status
+                    Filter <MediaQuery minWidth={601}>By Status</MediaQuery>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu className={styles.status_filter_menu}>
@@ -47,7 +53,7 @@ const HomeHeader = () => {
             </Dropdown>
             <button type="button" className={styles.new_invoice_btn}>
                 <span></span>
-                New Invoice
+                New <MediaQuery minWidth={601}>Invoice</MediaQuery>
             </button>
         </header>
     )

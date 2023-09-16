@@ -14,7 +14,7 @@ const App = () => {
     useEffect(() => {
         const dark_mode = localStorage.getItem("dark_mode");
         if(dark_mode === "true"){
-            document.body.className = "dark";
+            document.body.className = "dark_mode";
         }
     }, []);
 
@@ -30,4 +30,4 @@ const App = () => {
     )
 }
 
-export default App
+export default App;

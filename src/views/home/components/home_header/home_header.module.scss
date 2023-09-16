@@ -15,6 +15,11 @@
             line-height: normal;
             letter-spacing: -1.125px;
             margin-bottom: .7rem;
+
+            @media only screen and (max-width: $bp_phone){
+                font-size: 2.4rem;
+                margin-bottom: .4rem;
+            }
         }
 
         p{
@@ -119,6 +124,11 @@
         padding: .8rem;
         gap: 1rem;
         transition: all .2s;
+
+        @media only screen and (max-width: $bp_phone){
+            height: 4.4rem;
+            width: 9rem;
+        }
         
         &:hover{
             background: $color_primary_2;

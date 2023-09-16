@@ -4,8 +4,20 @@
     margin-top: 14.4rem;
     text-align: center;
 
+    @media only screen and (max-width: $bp_tablet){
+        margin-top: 21.5rem;
+    }
+
+    @media only screen and (max-width: $bp_phone){
+        margin-top: 10.3rem;
+    }
+    
     img{
         margin-bottom: 6.3rem;
+
+        @media only screen and (max-width: $bp_phone){
+            margin-bottom: 3.5rem;
+        }
     }
     
     h3{
@@ -13,6 +25,10 @@
         color: $color_black;
         font-weight: 700;
         margin-bottom: 1.7rem;
+
+        @media only screen and (max-width: $bp_phone){
+            margin-bottom: 2rem;
+        }
     }
 
     p{
@@ -23,5 +39,17 @@
         letter-spacing: -.1px;
         width: 20rem;
         margin: 0 auto;
+    }
+}
+
+:global(.dark_mode){
+
+    .no_invoice{
+        h3{
+            color: $color_white;
+        }
+        p{
+            color: $color_grey_1;
+        }
     }
 }

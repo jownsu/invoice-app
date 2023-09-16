@@ -9,6 +9,11 @@
     overflow: hidden;
     width: 10.3rem;
 
+    @media only screen and (max-width: $bp_tablet){
+        flex-direction: row;
+        border-radius: unset;
+    }
+
     &__logo{
         position: relative;
         margin-bottom: auto;
@@ -18,6 +23,18 @@
         display: grid;
         place-items: center;
         overflow: hidden;
+
+        @media only screen and (max-width: $bp_tablet){
+            margin-bottom: unset;
+            margin-right: auto;
+            height: 100%;
+            width: 8rem;
+            border-radius: 0 2rem 2rem 0;
+        }
+
+        @media only screen and (max-width: $bp_phone){
+            width: 7.2rem;
+        }
 
         &::before{
             content: "";
@@ -29,12 +46,26 @@
             bottom: -50%;
             border-top-left-radius: 2rem;
             z-index: 1;
+
+            @media only screen and (max-width: $bp_tablet){
+                height: 8rem;
+                width: 8rem;
+            }
+
+            @media only screen and (max-width: $bp_tablet){
+                height: 7.2rem;
+                width: 7.2rem;
+            }
         }
 
         img{
             width: 4rem;
             height: auto;
             z-index: 10;
+
+            @media only screen and (max-width: $bp_tablet){
+                width: 3rem;
+            }
         }
     }
 
@@ -50,6 +81,18 @@
         border-bottom: 1px solid #494E6E;
         width: 100%;
         padding-bottom: 3.2rem;
+
+        @media only screen and (max-width: $bp_tablet){
+            width: unset;
+            border-bottom: unset;
+            height: 100%;
+            border-right: 1px solid #494E6E;
+            padding: 0 3.2rem;
+        }
+
+        @media only screen and (max-width: $bp_phone){
+            padding: 0 2.6rem;
+        }
     }
 
     &__user{
@@ -57,6 +100,16 @@
         height: 4rem;
         width: 4rem;
         margin: 2.4rem 0;
+
+        @media only screen and (max-width: $bp_tablet){
+            height: 3.2rem;
+            width: 3.2rem;
+            margin: 0 3.2rem;
+        }
+
+        @media only screen and (max-width: $bp_phone){
+            margin: 0 2.6rem;
+        }
 
         img{
             border-radius: 50%;

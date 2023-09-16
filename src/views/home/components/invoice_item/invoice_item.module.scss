@@ -16,18 +16,34 @@ $opacity_value: 0.0571;
     border-radius: 8px;
     margin-bottom: 1.6rem;
     padding: 0 2rem 0 3.1rem;
+    gap: 1rem;
+
+    @media only screen and (max-width: $bp_phone){
+        height: 13.4rem;
+        display: grid;
+        gap: 0;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 2fr repeat(2, 1fr);
+        padding: 2.8rem 2.4rem;
+    }
 
     p{
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        margin-right: 1rem;
     }
 
     .id{
         color: $color_black;
         font-weight: 700;
-        width: 9.3rem;
+        flex: 0 1 9.7rem;
+
+        @media only screen and (max-width: $bp_phone){
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+            margin-bottom: auto;
+            line-height: 1;
+        }
 
         span{
             color: $color_grey_3;
@@ -41,20 +57,45 @@ $opacity_value: 0.0571;
     }
 
     .payment_due{
-        width: 13.8rem;
+        flex: 0 1 13.8rem;
+
+        @media only screen and (max-width: $bp_phone){
+            grid-row: 2 / 3;
+            grid-column: 1 / 2;
+        }
     }
 
     .client_name{
-        width: 10rem;
+        flex: 1 1 10rem;
         margin-right: auto;
+
+        @media only screen and (max-width: $bp_phone){
+            max-width: 22rem;
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+            margin-right: unset;
+        }
+
+        @media only screen and (max-width: $bp_smallest){
+            align-self: flex-start;
+            justify-self: flex-end;
+        }
     }
 
     .total{
-        width: 10rem;
+        flex: 0 1 10rem;
         color: $color_black;
         font-weight: 700;
         text-align: right;
-        margin-right: 3.8rem;
+        margin-right: 3rem;
+
+        @media only screen and (max-width: $bp_phone){
+            text-align: left;
+            margin-right: 0;
+            margin-top: 1.2rem;
+            grid-row: 3 / 4;
+            grid-column: 1 / 2;
+        }
     }
 
     .status{
@@ -71,6 +112,16 @@ $opacity_value: 0.0571;
         gap: .8rem;
         border-radius: 6px;
         margin-right: 1.5rem;
+
+        @media only screen and (max-width: $bp_phone){
+            grid-row: 2 / 4;
+            grid-column: 2 / 3;
+            margin-right: 0;
+        }
+
+        @media only screen and (max-width: $bp_smallest){
+            justify-self: flex-end;
+        }
 
         .status_dot{
             content: "";
@@ -105,6 +156,10 @@ $opacity_value: 0.0571;
             height: 1rem;
             width: 1rem;
             background: url("./images/icon-arrow-right.svg") no-repeat center;
+        }
+
+        @media only screen and (max-width: $bp_phone){
+            display: none;
         }
     }
 }
