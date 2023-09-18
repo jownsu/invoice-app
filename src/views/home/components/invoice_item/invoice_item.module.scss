@@ -99,20 +99,6 @@ $opacity_value: 0.0571;
     }
 
     .status{
-        color: $color_black;
-        font-weight: 700;
-        background: rgba($color_black, $opacity_value);
-        height: 4rem;
-        width: 10.4rem;
-        display: grid;
-        place-items: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: .8rem;
-        border-radius: 6px;
-        margin-right: 1.5rem;
-
         @media only screen and (max-width: $bp_phone){
             grid-row: 2 / 4;
             grid-column: 2 / 3;
@@ -121,29 +107,6 @@ $opacity_value: 0.0571;
 
         @media only screen and (max-width: $bp_smallest){
             justify-self: flex-end;
-        }
-
-        .status_dot{
-            content: "";
-            height: .8rem;
-            width: .8rem;
-            border-radius: 50%;
-            background: currentColor;
-        }
-
-        &.Paid{
-            background: rgba($color_paid, $opacity_value);
-            color: $color_paid;
-        }
-
-        &.Pending{
-            background: rgba($color_pending, $opacity_value);
-            color: $color_pending;
-        }
-
-        &.Draft{
-            background: rgba($color_draft, $opacity_value);
-            color: $color_draft;
         }
     }
 
@@ -165,15 +128,9 @@ $opacity_value: 0.0571;
 }
 
 :global(.dark_mode){
-
     .invoice_item{
         background-color: $color_primary_dark_1;
         color: $color_white;
-
-        .status.Draft{
-            background: rgba($color_draft_dark, $opacity_value);
-            color: $color_draft_dark;
-        }
     }
 
     .id,

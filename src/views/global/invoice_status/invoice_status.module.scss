@@ -1,0 +1,53 @@
+@import "../../../assets/sass/variables";
+$color_paid: #33D69F;
+$color_pending: #FF8F00;
+$color_draft: #373B53;
+$color_draft_dark: #DFE3FA;
+$opacity_value: 0.0571;
+
+.status{
+    color: $color_black;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: rgba($color_black, $opacity_value);
+    height: 4rem;
+    width: 10.4rem;
+    display: grid;
+    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .8rem;
+    border-radius: 6px;
+    margin-right: 1.5rem;
+
+    .status_dot{
+        content: "";
+        height: .8rem;
+        width: .8rem;
+        border-radius: 50%;
+        background: currentColor;
+    }
+
+    &.Paid{
+        background: rgba($color_paid, $opacity_value);
+        color: $color_paid;
+    }
+
+    &.Pending{
+        background: rgba($color_pending, $opacity_value);
+        color: $color_pending;
+    }
+
+    &.Draft{
+        background: rgba($color_draft, $opacity_value);
+        color: $color_draft;
+    }
+}
+
+:global(.dark_mode){
+    .status.Draft{
+        background: rgba($color_draft_dark, $opacity_value);
+        color: $color_draft_dark;
+    }
+}

@@ -1,0 +1,36 @@
+@import "../../../../assets/sass/variables";
+
+.item_list{
+    background: #F9FAFE;
+    border-radius: .8rem;
+    padding: 3.2rem;
+    margin-top: 4rem;
+
+    .list_header{
+        display: flex;
+        margin-bottom: 2rem;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: $color_grey_3;
+        
+        p{
+            flex: 1;
+
+            &:first-of-type{
+                flex: 2;
+            }
+
+            &:not(:first-of-type){
+                text-align: right;
+            }
+        }
+    }
+
+    ul {
+        li{
+            &:not(:last-of-type){
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}

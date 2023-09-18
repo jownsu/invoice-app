@@ -1,0 +1,44 @@
+/* React */
+import React from "react";
+
+/* Components */
+import List from "../../../global/list/list";
+import Item from "../item/item.component";
+
+/* CSS */
+import styles from "./item_list.module.scss";
+
+
+const DUMMY_DATA = [
+    {
+      name: "Banner Design",
+      quantity: 1,
+      price: 156.00,
+      total: 156.00
+    },
+    {
+      name: "Email Design",
+      quantity: 2,
+      price: 200.00,
+      total: 400.00
+    }
+];
+
+const ItemList = () => {
+    return(
+        <div className={styles.item_list}>
+            <div className={styles.list_header}>
+                <p>Item Name</p>
+                <p>QTY.</p>
+                <p>Price</p>
+                <p>Total</p>
+            </div>
+            <List 
+                items={DUMMY_DATA}
+                itemComponent={Item}     
+            />
+        </div>
+    )
+}
+
+export default ItemList;

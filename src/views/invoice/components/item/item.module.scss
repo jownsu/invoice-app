@@ -1,0 +1,26 @@
+@import "../../../../assets/sass/variables";
+
+.item{
+    display: flex;
+    
+    p{
+        flex: 1;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.5rem;
+        letter-spacing: -.25px;
+        color: $color_grey_3;
+
+        &:first-of-type{
+            flex: 2;
+        }
+
+        &:not(:first-of-type){
+            text-align: right;
+        }
+    }
+
+    .name, .total{
+        color: $color_grey_4;
+    }
+}

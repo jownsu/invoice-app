@@ -8,6 +8,7 @@ import SideNav from "./views/global/side_nav/side_nav";
 
 /* Pages */
 import Home from "./views/home/home";
+import Invoice from "./views/invoice/invoice";
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
             <main>
                 <Routes>
                     <Route path="/" element={<Home />}/>
+                    <Route path="/invoice/:invoice_id" element={<Invoice />}/>
                 </Routes>
             </main>
         </BrowserRouter>

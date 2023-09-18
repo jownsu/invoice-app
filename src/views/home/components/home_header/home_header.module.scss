@@ -49,7 +49,7 @@
             }
 
             &::after{
-                background: url("./images/icon-arrow-down.svg") no-repeat center;
+                background: url("/images/icon-arrow-down.svg") no-repeat center;
                 border: none;
                 height: 2rem;
                 width: 2rem;
@@ -139,7 +139,7 @@
             border-radius: 50%;
             height: 3.2rem;
             width: 3.2rem;
-            background: $color_white url("./images/icon-plus.svg") no-repeat center;
+            background: $color_white url("/images/icon-plus.svg") no-repeat center;
         }
     }
 }
