@@ -28,10 +28,10 @@ const ItemList = () => {
     return(
         <div className={styles.item_list}>
             <div className={styles.list_header}>
-                <p>Item Name</p>
-                <p>QTY.</p>
-                <p>Price</p>
-                <p>Total</p>
+                <p className={styles.item_name}>Item Name</p>
+                <p className={styles.quantity}>QTY.</p>
+                <p className={styles.price}>Price</p>
+                <p className={styles.total}>Total</p>
             </div>
             <List 
                 items={DUMMY_DATA}

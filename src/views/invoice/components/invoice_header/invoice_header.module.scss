@@ -37,21 +37,34 @@
             height: 4.8rem;
             border-radius: 2.4rem;
             padding: 0 2.4rem;
+            transition: all .2s;
         }
 
         .edit{
             background: #F9FAFE;
             color: $color_grey_3;
+
+            &:hover{
+                background: $color_grey_1;
+            }
         }
 
         .delete{
             background: $color_red;
             color: $color_white;
+
+            &:hover{
+                background: #FF9797;
+            }
         }
 
         .mark_as_paid{
             background: $color_primary_1;
             color: $color_white;
+
+            &:hover{
+                background: $color_primary_2;
+            }
         }
     }
 }

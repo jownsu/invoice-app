@@ -10,6 +10,10 @@
         line-height: 1.5rem;
         letter-spacing: -.25px;
         color: $color_grey_3;
+        flex-shrink: 0;
+        width: 10rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word; 
 
         &:first-of-type{
             flex: 2;
@@ -23,4 +27,13 @@
     .name, .total{
         color: $color_grey_4;
     }
+
+    .quantity{
+        margin-right: 2.1rem;
+    }
+
+    .price{
+        margin-right: 2.6rem;
+    }
+
 }

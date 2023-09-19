@@ -10,8 +10,8 @@ const Item = ({item}) => {
         <div className={styles.item}>
             <p className={styles.name}>{name}</p>
             <p className={styles.quantity}>{quantity}</p>
-            <p className={styles.price}>{price}</p>
-            <p className={styles.total}>{total}</p>
+            <p className={styles.price}>£ {price.toFixed(2)}</p>
+            <p className={styles.total}>£ {total.toFixed(2)}</p>
         </div>
     )
 }

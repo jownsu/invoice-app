@@ -2,13 +2,13 @@
 
 .item_list{
     background: #F9FAFE;
-    border-radius: .8rem;
-    padding: 3.2rem;
-    margin-top: 4rem;
+    border-radius: .8rem .8rem 0 0;
+    padding: 3.2rem 3.2rem 3.9rem 3.2rem;
+    margin-top: 4.5rem;
 
     .list_header{
         display: flex;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
         font-size: 1.3rem;
         font-weight: 500;
         color: $color_grey_3;
@@ -24,12 +24,16 @@
                 text-align: right;
             }
         }
+
+        .price{
+            margin-right: 2.6rem;
+        }
     }
 
     ul {
         li{
             &:not(:last-of-type){
-                margin-bottom: 2rem;
+                margin-bottom: 3.2rem;
             }
         }
     }
