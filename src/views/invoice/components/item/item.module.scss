@@ -35,5 +35,17 @@
     .price{
         margin-right: 2.6rem;
     }
+}
 
+:global(.dark_mode){
+    .item{
+        p{
+            color: $color_grey_1;
+        }
+
+        .name,
+        .total{
+                color: $color_white;
+            }
+    }
 }

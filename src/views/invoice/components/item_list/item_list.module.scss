@@ -38,3 +38,13 @@
         }
     }
 }
+
+:global(.dark_mode){
+    .item_list{
+        background: $color_primary_dark_2;
+
+        .list_header{
+            color: $color_grey_1;
+        }
+    }
+}

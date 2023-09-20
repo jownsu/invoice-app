@@ -1,7 +1,6 @@
 @import "../../../../assets/sass/variables";
 
 .invoice_header{
-
     display: flex;
     align-items: center;
     height: 8.8rem;
@@ -37,7 +36,10 @@
             height: 4.8rem;
             border-radius: 2.4rem;
             padding: 0 2.4rem;
-            transition: all .2s;
+
+            &:hover{
+                transition: all .2s;
+            }
         }
 
         .edit{
@@ -64,6 +66,23 @@
 
             &:hover{
                 background: $color_primary_2;
+            }
+        }
+    }
+}
+
+:global(.dark_mode){
+    .invoice_header{
+        background-color: $color_primary_dark_1;
+
+        .status_label{
+            color: $color_grey_1;
+        }
+
+        .invoice_actions{
+            .edit{
+                background: $color_primary_dark_2;
+                color: $color_grey_1;
             }
         }
     }

@@ -18,3 +18,9 @@
         background: url("/images/icon-arrow-left.svg") no-repeat;
     }
 }
+
+:global(.dark_mode){
+    .back_btn{
+        color: $color_white;
+    }
+}

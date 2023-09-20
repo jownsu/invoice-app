@@ -105,3 +105,21 @@
         }
     }
 }
+
+:global(.dark_mode){
+    .invoice_info{
+        background: $color_primary_dark_1;
+
+        .info_container{
+            color: $color_grey_1;
+
+            b{
+                color: $color_white;
+            }
+        }
+
+        .total{
+            background: $color_grey_4;
+        }
+    }
+}
