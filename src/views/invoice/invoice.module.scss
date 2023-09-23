@@ -2,4 +2,8 @@
 
 #invoice{
     margin-top: 7.4rem;
+
+    @media only screen and (max-width: $bp_phone){
+        margin-bottom: 12rem;
+    }
 }

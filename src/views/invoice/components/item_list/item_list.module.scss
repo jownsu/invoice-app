@@ -6,12 +6,21 @@
     padding: 3.2rem 3.2rem 3.9rem 3.2rem;
     margin-top: 4.5rem;
 
+    @media only screen and (max-width: $bp_phone){
+        margin-top: 4.2rem;
+        padding: 2.5rem 2.5rem 2.7rem 2.5rem;
+    }
+
     .list_header{
         display: flex;
         margin-bottom: 3rem;
         font-size: 1.3rem;
         font-weight: 500;
         color: $color_grey_3;
+
+        @media only screen and (max-width: $bp_phone){
+            display: none;
+        }
         
         p{
             flex: 1;

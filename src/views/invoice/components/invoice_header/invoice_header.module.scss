@@ -11,6 +11,10 @@
     background-color: $color_white;
     padding: 0 3.2rem;
 
+    @media only screen and (max-width: $bp_phone){
+        padding: 0 2.4rem;
+    }
+
     .status_label{
         font-size: 1.3rem;
         font-weight: 500;
@@ -21,11 +25,33 @@
 
     .status{
         margin-right: auto;
+        
+        @media only screen and (max-width: $bp_phone){
+            margin-right: unset;
+            margin-left: auto;
+        }
     }
 
     .invoice_actions{
         display: flex;
         gap: .8rem;
+
+        @media only screen and (max-width: $bp_phone){
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: $color_primary_dark_1;
+            height: 9rem;
+            align-items: center;
+            justify-content: space-around;
+            padding: 0 2.4rem;
+            z-index: 99;
+
+            > button{
+                flex-shrink: 0;
+            }
+        }
         
         button{
             border: none;
