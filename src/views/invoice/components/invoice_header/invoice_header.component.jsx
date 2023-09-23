@@ -7,13 +7,13 @@ import InvoiceStatus from "../../../global/invoice_status/invoice_status.compone
 /* CSS */
 import styles from "./invoice_header.module.scss";
 
-const InvoiceHeader = () => {
+const InvoiceHeader = ({invoice_status}) => {
     return (
         <div className={styles.invoice_header}>
             <p className={styles.status_label}>Status</p>
             <InvoiceStatus 
                 className={styles.status}
-                status={2}
+                status={invoice_status}
             />
             <div className={styles.invoice_actions}>
                 <button type="button" className={styles.edit}>
@@ -26,7 +26,6 @@ const InvoiceHeader = () => {
                     Mark as Paid
                 </button>
             </div>
-
         </div>
     )
 }

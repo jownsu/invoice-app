@@ -1,53 +1,70 @@
 /* React */
 import React from "react";
 
+/* Plugins */
+import moment from "moment";
+
 /* Components */
 import ItemList from "../item_list/item_list.component";
 
 /* CSS */
 import styles from "./invoice_info.module.scss";
 
-const InvoiceInfo = () => {
+const InvoiceInfo = ({invoice}) => {
+
+    const { 
+        id, 
+        description, 
+        sender_address, 
+        created_at, 
+        client_name, 
+        client_email, 
+        payment_due, 
+        client_address, 
+        total, 
+        items 
+    } = invoice;
+
     return (
         <div className={styles.invoice_info}>
             <div className={styles.info_container}>
                 <div className={styles.id}>
-                    <b><span>#</span>XM9141</b>                    
-                    <p>Graphic Design</p>
+                    <b><span>#</span>{id}</b>                    
+                    <p>{description}</p>
                 </div>
                 <div className={styles.address}>
-                    <p>19 Union Terrace</p>
-                    <p>London</p>
-                    <p>E1 3EZ</p>
-                    <p>United Kingdom</p>
+                    <p>{sender_address.street}</p>
+                    <p>{sender_address.city}</p>
+                    <p>{sender_address.post_code}</p>
+                    <p>{sender_address.country}</p>
                 </div>
                 <div className={styles.date}>
                     <p>Invoice Date</p>
-                    <b>21 Aug 2021</b>
+                    <b>{moment(created_at).format("DD MMM YYYY")}</b>
                 </div>
                 <div className={styles.bill_to}>
                     <p>Bill To</p>
-                    <b>Alex Grim</b>
+                    <b>{client_name}</b>
                 </div>
                 <div className={styles.sent_to}>
                     <p>Sent to</p>
-                    <b>alexgrim@mail.com</b>
+                    <b>{client_email}</b>
                 </div>
                 <div className={styles.payment_due}>
                     <p>Payment Due</p>
-                    <b>20 Sep 2021</b>
+                    <b>{moment(payment_due).format("DD MMM YYYY")}</b>
                 </div>
                 <div className={styles.address_to}>
-                    <p>84 Church Way</p>
-                    <p>Bradford</p>
-                    <p>BD1 9PB</p>
-                    <p>United Kingdom</p>
+                    <p>{client_address.street}</p>
+                    <p>{client_address.city}</p>
+                    <p>{client_address.post_code}</p>
+                    <p>{client_address.country}</p>
                 </div>
             </div>
-            <ItemList />
+            <ItemList items={items} />
             <div className={styles.total}>
                 <span>Amount Due</span>
-                <p>£ 556.00</p>
+                <p>£ {total.toFixed(2)}</p>
             </div>
         </div>
     )

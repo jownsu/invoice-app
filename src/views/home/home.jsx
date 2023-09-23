@@ -1,5 +1,6 @@
 /* React */
 import React from "react";
+import { useSelector } from "react-redux";
 
 /* Components */
 import HomeHeader from "./components/home_header/home_header.component";
@@ -10,16 +11,16 @@ import NoInvoice from "./components/no_invoice/no_invoice.component";
 /* CSS */
 import styles from "./home.module.scss";
 
-/* Dummy data */
-import data from "../../assets/data.json";
-
 const Home = () => {
+
+    const { invoice_list } = useSelector(state => state.invoice);
+
     return (
         <div id={styles.home}>
             <HomeHeader />
             <List 
                 className={styles.invoice_list}
-                items={data}
+                items={invoice_list}
                 resource_name={"invoice"}
                 itemComponent={InvoiceItem}
                 noItemComponent={NoInvoice}

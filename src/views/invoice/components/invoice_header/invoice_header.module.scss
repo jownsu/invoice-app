@@ -109,6 +109,11 @@
             .edit{
                 background: $color_primary_dark_2;
                 color: $color_grey_1;
+                
+                &:hover{
+                    color: $color_grey_3;
+                    background: $color_white;
+                }
             }
         }
     }

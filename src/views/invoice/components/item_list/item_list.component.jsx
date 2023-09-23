@@ -24,7 +24,7 @@ const DUMMY_DATA = [
     }
 ];
 
-const ItemList = () => {
+const ItemList = ({items}) => {
     return(
         <div className={styles.item_list}>
             <div className={styles.list_header}>
@@ -34,7 +34,7 @@ const ItemList = () => {
                 <p className={styles.total}>Total</p>
             </div>
             <List 
-                items={DUMMY_DATA}
+                items={items}
                 itemComponent={Item}     
             />
         </div>
