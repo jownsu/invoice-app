@@ -16,7 +16,7 @@ const List = ({
         <ul className={className}>
             {
                 items.map((item, index) => (
-                    <li>
+                    <li key={index}>
                         <ItemComponent key={index} {...{[resource_name]: item}} />
                     </li>
                 ))

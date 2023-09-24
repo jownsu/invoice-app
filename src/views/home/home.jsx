@@ -1,5 +1,5 @@
 /* React */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 /* Components */
@@ -13,14 +13,32 @@ import styles from "./home.module.scss";
 
 const Home = () => {
 
+    const [invoices, setInvoices] = useState([]);
+    const [status_filters, setStatusFilters] = useState([]);
     const { invoice_list } = useSelector(state => state.invoice);
+
+    useEffect(() => {
+        setInvoices(invoice_list);
+    }, []);
+
+    const handleStatusFilterChange = (filters) => {
+        let new_invoice_list = filters.length
+            ? invoice_list.filter(invoice => filters.includes(invoice.status))
+            : invoice_list;
+
+        setStatusFilters(filters);
+        setInvoices(new_invoice_list);
+    }
 
     return (
         <div id={styles.home}>
-            <HomeHeader />
+            <HomeHeader 
+                status_filters={status_filters} 
+                onStatusFilterChange={handleStatusFilterChange} 
+            />
             <List 
                 className={styles.invoice_list}
-                items={invoice_list}
+                items={invoices}
                 resource_name={"invoice"}
                 itemComponent={InvoiceItem}
                 noItemComponent={NoInvoice}
