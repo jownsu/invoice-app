@@ -11,7 +11,7 @@ import { INVOICE_STATUS } from "../../../../assets/constants/constants";
 /* CSS */
 import styles from "./home_header.module.scss";
 
-const HomeHeader = ({status_filters, onStatusFilterChange}) => {
+const HomeHeader = ({status_filters, onStatusFilterChange, onNewInvoiceClick}) => {
 
     const toggleFilters = (status) => {
         let new_status_filters = [...status_filters];
@@ -86,7 +86,7 @@ const HomeHeader = ({status_filters, onStatusFilterChange}) => {
                     </div>
                 </Dropdown.Menu>
             </Dropdown>
-            <button type="button" className={styles.new_invoice_btn}>
+            <button type="button" className={styles.new_invoice_btn} onClick={onNewInvoiceClick}>
                 <span></span>
                 New <MediaQuery minWidth={601}>Invoice</MediaQuery>
             </button>
