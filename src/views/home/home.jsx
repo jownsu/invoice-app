@@ -8,6 +8,7 @@ import List from "../global/list/list";
 import InvoiceItem from "./components/invoice_item/invoice_item.component";
 import NoInvoice from "./components/no_invoice/no_invoice.component";
 import Slider from "../global/slider/slider";
+import NewInvoiceForm from "./components/new_invoice_form/new_invoice_form.component";
 
 /* CSS */
 import styles from "./home.module.scss";
@@ -51,7 +52,7 @@ const Home = () => {
                 is_show={is_show_new_voice}
                 onClose={() => setShowNewVoice(false)}
             >
-                <h1>New Invoice Component Here</h1>
+                <NewInvoiceForm />
             </Slider>
         </div>
     )

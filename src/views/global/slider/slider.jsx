@@ -7,10 +7,9 @@ const Slider = ({children, is_show = false, onClose = () => {}}) => {
     if(is_show){
         return(
             <div className={`${styles.slider}`} onClick={onClose}>
-                    <div className={`${styles.content}`}>
-                        {children}
-                    </div>
-                <div className={styles.overlay} onClick={onClose}></div>
+                <div className={`${styles.content}`} onClick={e => e.stopPropagation()}>
+                    {children}
+                </div>
             </div>
         )
     }
