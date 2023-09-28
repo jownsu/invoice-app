@@ -2,7 +2,21 @@
 
 
 .new_invoice_form{
-    padding: 6rem 5.5rem 1rem 4.8rem;
+    padding: 4rem 1.6rem 1rem 4.8rem;
+    margin-right: 3.2rem;
+    margin-top: 2rem;
+    height: 100%;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: .8rem;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: $color_grey_1;
+        border-radius: 4px;
+    }
+
     h3{
         font-size: 2.4rem;
         font-weight: 700;
