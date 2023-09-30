@@ -1,8 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
+import Dropdown from 'react-bootstrap/Dropdown';
+import ReactDatePicker from "react-datepicker";
 import styles from "./new_invoice_form.module.scss";
 
+import "react-datepicker/dist/react-datepicker.css";
 const NewInvoiceForm = () => {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -64,6 +67,41 @@ const NewInvoiceForm = () => {
                         <label htmlFor="client_country">Country</label>
                         <input type="text" id="client_country"/>
                     </div>
+                </div>
+            </div>
+
+            <div className={styles.invoice}>
+                <div className={`${styles.input_group} ${styles.invoice_date_container}`}>
+                    <label htmlFor="invoice_date">Invoice Date</label>
+                    <ReactDatePicker
+                        className={styles.invoice_date} 
+                        value="21 Aug 2021" 
+                    />
+                    <span className={styles.calendar_icon}></span>
+                </div>
+                <div className={styles.input_group}>
+                    <label htmlFor="payment_terms">Payment Terms</label>
+                    <Dropdown className={styles.payment_terms}>
+                        <Dropdown.Toggle>Net 30 Days</Dropdown.Toggle>
+                        <Dropdown.Menu className={styles.payment_terms_menu}>
+                            <div className={styles.payment_terms_option}>
+                                Net 1 Day
+                            </div>
+                            <div className={styles.payment_terms_option}>
+                                Net 7 Days
+                            </div>
+                            <div className={styles.payment_terms_option}>
+                                Net 14 Days
+                            </div>
+                            <div className={styles.payment_terms_option}>
+                                Net 30 Days
+                            </div>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
+                <div className={styles.input_group}>
+                    <label htmlFor="project_description">Project Description</label>
+                    <input type="text" id="project_description"/>
                 </div>
             </div>
         </form>

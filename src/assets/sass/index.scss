@@ -33,3 +33,11 @@ body{
         background-color: $color_dark_bg;
     }
 }
+
+
+/* OVERWRITTING STYPE OF REACT DATE PICKER */
+.react-datepicker{
+    &__triangle{
+        display: none;
+    }
+}
