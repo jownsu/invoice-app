@@ -193,6 +193,39 @@
                     }
                 }
             }
+
+
+        }
+
+        .date_head{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.4rem;
+
+            > button{
+                border: none;
+                outline: none;
+                background: none;
+                height: 2rem;
+                width: 2rem;
+                margin: 0 .6rem;
+
+                &.prev_btn{
+                    background: url("/images/icon-arrow-left.svg") no-repeat center;
+                }
+
+                &.next_btn{
+                    background: url("/images/icon-arrow-right.svg") no-repeat center;
+                }
+            }
+
+            .date_text{
+                font-size: 1.5rem;
+                letter-spacing: -.25px;
+                font-weight: 700;
+                color: $color_grey_4;
+            }
         }
     }
 }

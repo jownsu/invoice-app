@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Dropdown from 'react-bootstrap/Dropdown';
 import ReactDatePicker from "react-datepicker";
 import styles from "./new_invoice_form.module.scss";
+import moment from "moment";
 
 import "react-datepicker/dist/react-datepicker.css";
 const NewInvoiceForm = () => {
@@ -12,6 +13,26 @@ const NewInvoiceForm = () => {
 
     const handleNewInvoiceSubmit = (form_data) => {
         console.log(form_data);
+    }
+
+    const customDateHeader = ({decreaseMonth, increaseMonth, monthDate}) => {
+        return (
+            <div className={styles.date_head}>
+                <button 
+                    onClick={decreaseMonth} 
+                    type="button"
+                    className={styles.prev_btn}
+                >
+                </button>
+                <p className={styles.date_text}>{moment(monthDate).format("MMM YYYY")}</p>
+                <button 
+                    onClick={increaseMonth} 
+                    type="button"
+                    className={styles.next_btn}
+                >
+                </button>
+            </div>
+        )
     }
 
     return (
@@ -76,6 +97,7 @@ const NewInvoiceForm = () => {
                     <ReactDatePicker
                         className={styles.invoice_date} 
                         value="21 Aug 2021" 
+                        renderCustomHeader={customDateHeader}
                     />
                     <span className={styles.calendar_icon}></span>
                 </div>
