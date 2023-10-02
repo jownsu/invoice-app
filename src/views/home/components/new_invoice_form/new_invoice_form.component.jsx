@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -7,8 +7,9 @@ import styles from "./new_invoice_form.module.scss";
 import moment from "moment";
 
 import "react-datepicker/dist/react-datepicker.css";
-const NewInvoiceForm = () => {
+const NewInvoiceForm = ({onClose}) => {
 
+    const [is_invoice_date_open, setIsInvoiceDateOpen] = useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const handleNewInvoiceSubmit = (form_data) => {
@@ -98,8 +99,13 @@ const NewInvoiceForm = () => {
                         className={styles.invoice_date} 
                         value="21 Aug 2021" 
                         renderCustomHeader={customDateHeader}
+                        open={is_invoice_date_open}
+                        readOnly
+                        onClickOutside={() => setIsInvoiceDateOpen(false)}
+                        onInputClick={() => setIsInvoiceDateOpen(true)}
+                        onSelect={() => setIsInvoiceDateOpen(false)}
                     />
-                    <span className={styles.calendar_icon}></span>
+                    <span className={`${styles.calendar_icon} ${is_invoice_date_open ? styles.active : ""}`}></span>
                 </div>
                 <div className={styles.input_group}>
                     <label htmlFor="payment_terms">Payment Terms</label>

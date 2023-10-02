@@ -126,6 +126,15 @@
                 width: 1.7rem;
                 top: 4rem;
                 right: 1.5rem;
+                cursor: pointer;
+
+                &.active{
+                    background: url("/images/icon-active-calendar.svg") no-repeat center !important;
+                }
+            }
+
+            input{
+                cursor: pointer;
             }
         }
 
@@ -193,8 +202,6 @@
                     }
                 }
             }
-
-
         }
 
         .date_head{

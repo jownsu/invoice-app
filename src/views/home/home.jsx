@@ -52,7 +52,7 @@ const Home = () => {
                 is_show={is_show_new_voice}
                 onClose={() => setShowNewVoice(false)}
             >
-                <NewInvoiceForm />
+                <NewInvoiceForm onClose={() => setShowNewVoice(false)} />
             </Slider>
         </div>
     )
