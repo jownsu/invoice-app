@@ -235,4 +235,39 @@
             }
         }
     }
+
+    .item_list_container{
+        margin-top: 2rem;
+
+        h5{
+            font-size: 1.8rem;
+            color: #777F98;
+            font-weight: 700;
+            letter-spacing: -.375px;
+        }
+
+        .item_list_header{
+            display: flex;
+            color: $color_grey_3;
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: -.1px;
+            margin-bottom: .5rem;
+
+            p{
+                &:nth-child(1){
+                    flex: 3;
+                }
+                &:nth-child(2){
+                    flex: 1;
+                }
+                &:nth-child(3){
+                    flex: 2;
+                }
+                &:nth-child(4){
+                    flex: 1;
+                }
+            }
+        }
+    }
 }

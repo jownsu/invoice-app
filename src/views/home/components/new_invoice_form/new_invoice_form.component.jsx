@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import Dropdown from 'react-bootstrap/Dropdown';
+import Item from "../item/item.component";
 import ReactDatePicker from "react-datepicker";
 import styles from "./new_invoice_form.module.scss";
 import moment from "moment";
@@ -131,6 +132,18 @@ const NewInvoiceForm = ({onClose}) => {
                     <label htmlFor="project_description">Project Description</label>
                     <input type="text" id="project_description"/>
                 </div>
+            </div>
+
+            <div className={styles.item_list_container}>
+                <h5>Item List</h5>
+                <div className={styles.item_list_header}>
+                    <p>Item Name</p>
+                    <p>Qty.</p>
+                    <p>Price</p>
+                    <p>Total</p>
+                </div>
+
+                <Item />
             </div>
         </form>
     )
