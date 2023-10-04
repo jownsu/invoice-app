@@ -142,8 +142,9 @@ const NewInvoiceForm = ({onClose}) => {
                     <p>Price</p>
                     <p>Total</p>
                 </div>
-
                 <Item />
+
+                <button type="button" className={styles.add_item_btn}><span className={styles.add_icon}></span>+ Add New Item</button>
             </div>
         </form>
     )

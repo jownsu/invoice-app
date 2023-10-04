@@ -143,7 +143,11 @@
             border: 1px solid $color_grey_1;
             border-radius: 4px;
             padding: 1rem;
-            
+
+            &:global(.show){
+                border: 1px solid $color_primary_1;
+            }
+
             button{
                 color: $color_black;
                 font-size: 1.5rem;
@@ -253,20 +257,48 @@
             font-weight: 500;
             letter-spacing: -.1px;
             margin-bottom: .5rem;
+            gap: 1.6rem;
 
             p{
                 &:nth-child(1){
-                    flex: 3;
+                    width: 100%;
+                    max-width: 21.4rem;
+                    min-width: 0;
                 }
                 &:nth-child(2){
-                    flex: 1;
+                    flex-shrink: 0;
+                    width: 4.6rem;
                 }
                 &:nth-child(3){
-                    flex: 2;
+                    flex-shrink: 0;
+                    width: 10rem;
                 }
                 &:nth-child(4){
                     flex: 1;
+                    flex-shrink: 0;
                 }
+            }
+        }
+
+        .add_item_btn{
+            height: 4.8rem;
+            border-radius: 2.4rem;
+            background: #F9FAFE;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: $color_grey_3;
+            margin-top: 1.8rem;
+            letter-spacing: -.25px;
+
+            &:hover{
+                background: $color_grey_1;
+            }
+
+            .add_icon{
+                display: block;
             }
         }
     }

@@ -37,6 +37,7 @@
 
 
     .total{
+        flex-shrink: 0;
         color: $color_grey_2;
         font-size: 1.5rem;
         font-weight: 700;
@@ -45,6 +46,8 @@
     }
 
     .delete{
+        flex: 1;
+        flex-shrink: 0;
         border: none;
         outline: none;
         background: url("/images/icon-delete.svg") no-repeat center;
