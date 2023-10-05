@@ -5,8 +5,9 @@
     padding: 4rem 1.6rem 30rem 4.8rem;
     margin-right: 3.2rem;
     margin-top: 2rem;
-    height: 100%;
+    height: calc(100% - 13rem);
     overflow: auto;
+    margin-bottom: 200rem;
 
     &::-webkit-scrollbar {
         width: .8rem;
@@ -299,6 +300,57 @@
 
             .add_icon{
                 display: block;
+            }
+        }
+    }
+
+    .actions_container{
+        margin-top: auto;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 3rem 4.5rem 3rem 15rem;
+        width: 100%;
+        display: flex;
+        background: $color_white;
+        border-radius: 0px 20px 20px 0px;
+        box-shadow: rgba(0, 0, 0, .1)0px -60px 75px 0px;
+        
+        button{
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -.25px;
+            border: none;
+            outline: none;
+            height: 4.8rem;
+            padding: 0 2.4rem;
+            border-radius: 2.4rem;
+
+            &.btn_discard{
+                margin-right: auto;
+                background: #F9FAFE;
+                color: $color_grey_3;
+
+
+            }
+
+            &.btn_draft{
+                margin-right: 1rem;
+                background: #373B53;
+                color: $color_grey_2;
+
+                &:hover{
+                    background: $color_grey_4;
+                }
+            }
+
+            &.btn_save{
+                background: $color_primary_1;
+                color: $color_white;
+
+                &:hover{
+                    background: #9277FF;
+                }
             }
         }
     }

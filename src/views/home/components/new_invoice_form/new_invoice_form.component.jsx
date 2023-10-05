@@ -146,6 +146,12 @@ const NewInvoiceForm = ({onClose}) => {
 
                 <button type="button" className={styles.add_item_btn}><span className={styles.add_icon}></span>+ Add New Item</button>
             </div>
+
+            <div className={styles.actions_container}>
+                <button type="button" className={styles.btn_discard}>Discard</button>
+                <button type="button" className={styles.btn_draft}>Save as Draft</button>
+                <button type="button" className={styles.btn_save}>Save & Send</button>
+            </div>
         </form>
     )
 }
