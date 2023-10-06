@@ -2,12 +2,11 @@
 
 
 .new_invoice_form{
-    padding: 4rem 1.6rem 30rem 4.8rem;
+    padding: 4rem 1.6rem 1rem 4.8rem;
     margin-right: 3.2rem;
     margin-top: 2rem;
     height: calc(100% - 13rem);
     overflow: auto;
-    margin-bottom: 200rem;
 
     &::-webkit-scrollbar {
         width: .8rem;
@@ -309,12 +308,12 @@
         position: absolute;
         bottom: 0;
         right: 0;
-        padding: 3rem 4.5rem 3rem 15rem;
+        padding: 3rem 5.6rem 3rem 15.9rem;
         width: 100%;
         display: flex;
         background: $color_white;
         border-radius: 0px 20px 20px 0px;
-        box-shadow: rgba(0, 0, 0, .1)0px -60px 75px 0px;
+        box-shadow: rgba(0, 0, 0, .05) 0px -60px 75px 0px;
         
         button{
             font-size: 1.5rem;
@@ -335,7 +334,7 @@
             }
 
             &.btn_draft{
-                margin-right: 1rem;
+                margin-right: .8rem;
                 background: #373B53;
                 color: $color_grey_2;
 
@@ -351,6 +350,57 @@
                 &:hover{
                     background: #9277FF;
                 }
+            }
+        }
+    }
+}
+
+:global(.dark_mode){
+    .new_invoice_form{
+        h3{
+            color: $color_white;
+        }
+
+        .input_group{
+            label{
+                color: $color_grey_1;
+            }
+
+            input{
+                background: $color_primary_dark_1;
+                border: 1px solid $color_primary_dark_2;
+                color: $color_white;
+            }
+        }
+
+        .invoice{
+            .invoice_date_container{
+                .calendar_icon{
+                    background: url("/images/icon-active-calendar.svg") no-repeat center;
+                }
+            }
+        }
+
+        .item_list_container{
+            .item_list_header{
+                color: $color_grey_1;
+            }
+
+            .add_item_btn{
+                color: $color_grey_1;
+                background: $color_primary_dark_2;
+            }
+        }
+
+        .actions_container{
+            background: $color_dark_bg;
+        }
+
+        .payment_terms{
+            background: $color_primary_dark_1;
+            border: 1px solid $color_primary_dark_2;
+            button{
+                color: $color_white;
             }
         }
     }

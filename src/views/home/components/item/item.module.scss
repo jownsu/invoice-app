@@ -55,3 +55,16 @@
         width: 1.5rem;
     }
 }
+
+:global(.dark_mode){
+    .item_container{
+        input{
+            background-color: $color_primary_dark_1;
+            border: 1px solid $color_primary_dark_2;
+            color: $color_white;
+        }
+        .total{
+            color: $color_grey_1;
+        }
+    }
+}
