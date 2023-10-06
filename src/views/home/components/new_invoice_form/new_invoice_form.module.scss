@@ -357,6 +357,11 @@
 
 :global(.dark_mode){
     .new_invoice_form{
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $color_primary_dark_2;
+        }
+
         h3{
             color: $color_white;
         }
