@@ -1,11 +1,17 @@
+/* React */
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 
+/* Plugins */
+import { useForm } from "react-hook-form";
 import Dropdown from 'react-bootstrap/Dropdown';
-import Item from "../item/item.component";
 import ReactDatePicker from "react-datepicker";
-import styles from "./new_invoice_form.module.scss";
 import moment from "moment";
+
+/* Component */
+import Item from "../item/item.component";
+
+/* CSS */
+import styles from "./new_invoice_form.module.scss";
 
 import "react-datepicker/dist/react-datepicker.css";
 const NewInvoiceForm = ({onClose}) => {
@@ -39,6 +45,15 @@ const NewInvoiceForm = ({onClose}) => {
 
     return (
         <form onSubmit={handleSubmit(handleNewInvoiceSubmit)} className={styles.new_invoice_form}>
+            <button 
+                type="button" 
+                className={styles.btn_back}
+                onClick={onClose}
+            >
+                <span className={styles.back_icon}></span>
+                Go back
+            </button>
+            
             <h3>New Invoice</h3>
 
             <div className={styles.bill_from}>

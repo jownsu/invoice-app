@@ -6,43 +6,83 @@
     gap: 1.6rem;
     width: 100%;
 
-    input{
-        height: 4.8rem;
-        border: 1px solid $color_grey_1;
-        border-radius: 4px;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: $color_grey_4;
-        letter-spacing: -.25px;
-        padding: 0 1rem;
-        outline: none;
+    @media only screen and (max-width: $bp_phone){
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr min-content;
+        column-gap: 1.6rem;
+        row-gap: 1.4rem;
 
-        &:focus{
-            border: 1px solid $color_primary_2 !important;
-        }
-        &.item_name{
-            width: 100%;
-            max-width: 21.4rem;
-            min-width: 0;
-        }
-    
-        &.quantity{
-            width: 4.6rem;
-        }
-    
-        &.price{
-            width: 10rem;
+        .input_group:nth-child(1){
+            grid-column: 1 / 5;
         }
     }
 
+    .input_group{
+        label{
+            display: none;
+            color: $color_grey_3;
+            font-size: 1.5rem;
+            margin-bottom: 1.1rem;
 
-    .total{
-        flex-shrink: 0;
-        color: $color_grey_2;
-        font-size: 1.5rem;
-        font-weight: 700;
-        line-height: 1.5rem;
-        letter-spacing: -.25px;
+            @media only screen and (max-width: $bp_phone){
+                display: block;
+            }
+        }
+
+        input{
+            height: 4.8rem;
+            border: 1px solid $color_grey_1;
+            border-radius: 4px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: $color_grey_4;
+            letter-spacing: -.25px;
+            padding: 0 1rem;
+            outline: none;
+    
+            &:focus{
+                border: 1px solid $color_primary_2 !important;
+            }
+            &.item_name{
+                width: 100%;
+                max-width: 21.4rem;
+                min-width: 0;
+
+                @media only screen and (max-width: $bp_phone){
+                    max-width: unset;
+                }
+            }
+        
+            &.quantity{
+                width: 4.6rem;
+
+                @media only screen and (max-width: $bp_phone){
+                    width: 100%;
+                }
+            }
+        
+            &.price{
+                width: 10rem;
+                
+                @media only screen and (max-width: $bp_phone){
+                    width: 100%;
+                }
+            }
+        }
+    
+        .total{
+            flex-shrink: 0;
+            color: $color_grey_2;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -.25px;
+            height: 4.8rem;
+            line-height: 4.8rem;
+            @media only screen and (max-width: $bp_phone){
+                width: 100%;
+            }
+        }
     }
 
     .delete{
@@ -53,6 +93,10 @@
         background: url("/images/icon-delete.svg") no-repeat center;
         height: 1.5rem;
         width: 1.5rem;
+
+        @media only screen and (max-width: $bp_phone){
+            margin-top: 3rem;
+        }
     }
 }
 

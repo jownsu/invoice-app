@@ -8,22 +8,6 @@ import Item from "../item/item.component";
 /* CSS */
 import styles from "./item_list.module.scss";
 
-
-const DUMMY_DATA = [
-    {
-      name: "Banner Design",
-      quantity: 1,
-      price: 156.00,
-      total: 156.00
-    },
-    {
-      name: "Email Design",
-      quantity: 2,
-      price: 200.00,
-      total: 400.00
-    }
-];
-
 const ItemList = ({items}) => {
     return(
         <div className={styles.item_list}>
