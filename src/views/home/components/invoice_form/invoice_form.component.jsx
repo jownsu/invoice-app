@@ -11,10 +11,11 @@ import moment from "moment";
 import Item from "../item/item.component";
 
 /* CSS */
-import styles from "./new_invoice_form.module.scss";
+import styles from "./invoice_form.module.scss";
 
 import "react-datepicker/dist/react-datepicker.css";
-const NewInvoiceForm = ({onClose}) => {
+
+const InvoiceForm = ({onClose, is_edit = false}) => {
 
     const [is_invoice_date_open, setIsInvoiceDateOpen] = useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -54,7 +55,12 @@ const NewInvoiceForm = ({onClose}) => {
                 Go back
             </button>
             
-            <h3>New Invoice</h3>
+            {
+                is_edit 
+                ? <h3>New Invoice</h3>
+                : <h3>Edit <span>#</span>XM9141</h3>
+            }
+            
 
             <div className={styles.bill_from}>
                 <h4>Bill From</h4>
@@ -162,13 +168,36 @@ const NewInvoiceForm = ({onClose}) => {
                 <button type="button" className={styles.add_item_btn}><span className={styles.add_icon}></span>+ Add New Item</button>
             </div>
 
-            <div className={styles.actions_container}>
-                <button type="button" className={styles.btn_discard}>Discard</button>
-                <button type="button" className={styles.btn_draft}>Save as Draft</button>
-                <button type="button" className={styles.btn_save}>Save & Send</button>
-            </div>
+            {
+                is_edit
+                ? (
+                    <div className={styles.actions_container}>
+                        <button 
+                            type="button" 
+                            className={styles.btn_discard}
+                            onClick={onClose}
+                        >
+                            Discard
+                        </button>
+                        <button type="button" className={styles.btn_draft}>Save as Draft</button>
+                        <button type="button" className={styles.btn_save}>Save & Send</button>
+                    </div>
+                )
+                : (
+                    <div className={styles.actions_container}>
+                        <button 
+                            type="button" 
+                            className={styles.btn_cancel}
+                            onClick={onClose}
+                        >
+                            Cancel
+                        </button>
+                        <button type="button" className={styles.btn_save_changes}>Save Changes</button>
+                    </div>
+                )
+            }
         </form>
     )
 }
 
-export default NewInvoiceForm;
+export default InvoiceForm;

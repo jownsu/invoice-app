@@ -8,7 +8,7 @@ import List from "../global/list/list";
 import InvoiceItem from "./components/invoice_item/invoice_item.component";
 import NoInvoice from "./components/no_invoice/no_invoice.component";
 import Slider from "../global/slider/slider";
-import NewInvoiceForm from "./components/new_invoice_form/new_invoice_form.component";
+import InvoiceForm from "./components/invoice_form/invoice_form.component";
 
 /* CSS */
 import styles from "./home.module.scss";
@@ -19,7 +19,7 @@ const Home = () => {
     const [status_filters, setStatusFilters] = useState([]);
     const { invoice_list } = useSelector(state => state.invoice);
 
-    const [is_show_new_voice, setShowNewVoice] = useState(false);
+    const [is_show_invoice_form, setShowInVoiceForm] = useState(false);
 
     useEffect(() => {
         setInvoices(invoice_list);
@@ -39,7 +39,7 @@ const Home = () => {
             <HomeHeader 
                 status_filters={status_filters} 
                 onStatusFilterChange={handleStatusFilterChange} 
-                onNewInvoiceClick={() => setShowNewVoice(true)}
+                onNewInvoiceClick={() => setShowInVoiceForm(true)}
             />
             <List 
                 className={styles.invoice_list}
@@ -49,10 +49,10 @@ const Home = () => {
                 noItemComponent={NoInvoice}
             />
             <Slider 
-                is_show={is_show_new_voice}
-                onClose={() => setShowNewVoice(false)}
+                is_show={is_show_invoice_form}
+                onClose={() => setShowInVoiceForm(false)}
             >
-                <NewInvoiceForm onClose={() => setShowNewVoice(false)} />
+                <InvoiceForm onClose={() => setShowInVoiceForm(false)} />
             </Slider>
         </div>
     )

@@ -7,7 +7,7 @@ import InvoiceStatus from "../../../global/invoice_status/invoice_status.compone
 /* CSS */
 import styles from "./invoice_header.module.scss";
 
-const InvoiceHeader = ({invoice_status}) => {
+const InvoiceHeader = ({invoice_status, onEditClick}) => {
     return (
         <div className={styles.invoice_header}>
             <p className={styles.status_label}>Status</p>
@@ -16,7 +16,11 @@ const InvoiceHeader = ({invoice_status}) => {
                 status={invoice_status}
             />
             <div className={styles.invoice_actions}>
-                <button type="button" className={styles.edit}>
+                <button 
+                    type="button" 
+                    className={styles.edit}
+                    onClick={onEditClick}
+                >
                     Edit
                 </button>
                 <button type="button" className={styles.delete}>

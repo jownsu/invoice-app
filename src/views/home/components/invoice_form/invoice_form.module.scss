@@ -32,6 +32,10 @@
         letter-spacing: -.5px;
         color: $color_grey_4;
         margin-bottom: 4.5rem;
+
+        span{
+            color: $color_grey_2;
+        }
         
         @media only screen and (max-width: $bp_phone){
             margin-bottom: 2.3rem;
@@ -437,6 +441,18 @@
                     background: #9277FF;
                 }
             }
+
+            &.btn_cancel{
+                background: #F9FAFE;
+                color: $color_grey_3;
+                margin-left: auto;
+                margin-right: .8rem;
+            }
+
+            &.btn_save_changes{
+                background: $color_primary_1;
+                color: $color_white;
+            }
         }
     }
 
@@ -476,6 +492,10 @@
 
         h3{
             color: $color_white;
+
+            span{
+                color: #777F98;
+            }
         }
 
         .input_group{
