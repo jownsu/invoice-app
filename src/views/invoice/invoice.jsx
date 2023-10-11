@@ -12,6 +12,7 @@ import InvoiceHeader from "./components/invoice_header/invoice_header.component"
 import InvoiceInfo from "./components/invoice_info/invoice_info.component";
 import Slider from "../global/slider/slider";
 import InvoiceForm from "../home/components/invoice_form/invoice_form.component";
+import DeleteModal from "./modals/delete.modal";
 
 /* CSS */
 import styles from "./invoice.module.scss";
@@ -21,6 +22,7 @@ const Invoice = () => {
     const { invoice_id } = useParams();
     const dispatch = useDispatch();
     const [is_show_invoice_form, setIsShowInvoiceForm] = useState(false);
+    const [is_show_delete_nodal, setIsShowDeleteModal] = useState(false);
 
     useEffect(() => {
         dispatch(selectInvoice({invoice_id: invoice_id}));
@@ -34,6 +36,7 @@ const Invoice = () => {
             <InvoiceHeader 
                 invoice_status={selected_invoice.status}
                 onEditClick={() => setIsShowInvoiceForm(true)}     
+                onDeleteClick={() => setIsShowDeleteModal(true)}
             />
             <InvoiceInfo invoice={selected_invoice} />
             <Slider 
@@ -42,6 +45,10 @@ const Invoice = () => {
             >
                 <InvoiceForm onClose={() => setIsShowInvoiceForm(false)} />
             </Slider>
+            <DeleteModal 
+                show={is_show_delete_nodal}
+                onHide={() => setIsShowDeleteModal(false)}
+            />
         </div>
     )
 }

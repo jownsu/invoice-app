@@ -1,0 +1,108 @@
+@import "../../../assets/sass/variables";
+
+.delete_modal{
+    h4{
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 3.2rem;
+        letter-spacing: -.5px;
+        color: $color_grey_4;
+        margin-bottom: 1.5rem;
+    }
+
+    p{
+        color: $color_grey_2;
+        font-size: 1.3rem;
+        font-weight: 500;
+        line-height: 2.2rem;
+        letter-spacing: -.1px;
+    }
+
+    :global(.modal-body){
+        padding: 5rem 4.8rem 4.8rem 4.8rem;
+
+        @media only screen and (max-width: $bp_phone){
+            padding: 3.5rem 3.2rem 3.2rem 3.2rem;
+        }
+    }
+
+    :global(.modal-content){
+        width: 48rem;
+        margin: 0 auto;
+
+        @media only screen and (max-width: $bp_phone){
+            width: calc(100% - 4.8rem);
+        }
+    }
+
+    .action_container{
+        display: flex;
+        justify-content: flex-end;
+        gap: .8rem;
+        margin-top: 1.3rem;
+
+        @media only screen and (max-width: $bp_phone){
+            margin-top: 2.5rem;
+        }
+
+        button{
+            border: none;
+            outline: none;
+            border-radius: 2.4rem;
+            padding: 0 2.4rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            height: 4.8rem;
+            transition: all .2s;
+
+            &.btn_cancel{
+                background: #F9FAFE;
+                color: $color_grey_3;
+
+                &:hover{
+                    background: $color_grey_1;
+                }
+            }
+
+            &.btn_delete{
+                background: $color_red;
+                color: $color_white;
+
+                &:hover{
+                    background: #FF9797;
+                }
+            }
+        }
+    }
+}
+
+:global(.dark_mode){
+    .delete_modal{
+        :global(.modal-content){
+            background: $color_primary_dark_1;
+        }
+
+        h4{
+            color: $color_white;
+        }
+
+        p{
+            color: $color_grey_1;
+        }
+
+        .action_container{
+            button{
+                &.btn_cancel{
+                    background: $color_primary_dark_2;
+                    color: $color_grey_1;
+
+                    &:hover{
+                        background: $color_white;
+                        color: $color_grey_3;
+
+                    }
+                }
+            }
+        }
+    }
+}
