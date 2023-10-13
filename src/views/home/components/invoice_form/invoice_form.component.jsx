@@ -15,13 +15,14 @@ import styles from "./invoice_form.module.scss";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const InvoiceForm = ({onClose, is_edit = false}) => {
+const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
 
     const [is_invoice_date_open, setIsInvoiceDateOpen] = useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const handleNewInvoiceSubmit = (form_data) => {
-        console.log(form_data);
+        onFormSubmit(form_data);
+        onClose();
     }
 
     const customDateHeader = ({decreaseMonth, increaseMonth, monthDate}) => {
@@ -165,7 +166,12 @@ const InvoiceForm = ({onClose, is_edit = false}) => {
                 </div>
                 <Item />
 
-                <button type="button" className={styles.add_item_btn}><span className={styles.add_icon}></span>+ Add New Item</button>
+                <button 
+                    type="button" 
+                    className={styles.add_item_btn}
+                >
+                    <span className={styles.add_icon}></span>+ Add New Item
+                </button>
             </div>
 
             {
@@ -192,7 +198,7 @@ const InvoiceForm = ({onClose, is_edit = false}) => {
                         >
                             Cancel
                         </button>
-                        <button type="button" className={styles.btn_save_changes}>Save Changes</button>
+                        <button type="submit" className={styles.btn_save_changes}>Save Changes</button>
                     </div>
                 )
             }

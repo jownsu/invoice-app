@@ -1,6 +1,9 @@
 /* React */
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+
+/* Redux */
+import { useSelector, useDispatch } from "react-redux";
+import { addInvoice } from "../../redux/invoice/invoice_slice";
 
 /* Components */
 import HomeHeader from "./components/home_header/home_header.component";
@@ -14,7 +17,7 @@ import InvoiceForm from "./components/invoice_form/invoice_form.component";
 import styles from "./home.module.scss";
 
 const Home = () => {
-
+    const dispatch = useDispatch();
     const [invoices, setInvoices] = useState([]);
     const [status_filters, setStatusFilters] = useState([]);
     const { invoice_list } = useSelector(state => state.invoice);
@@ -23,7 +26,7 @@ const Home = () => {
 
     useEffect(() => {
         setInvoices(invoice_list);
-    }, []);
+    }, [invoice_list]);
 
     const handleStatusFilterChange = (filters) => {
         let new_invoice_list = filters.length
@@ -52,7 +55,10 @@ const Home = () => {
                 is_show={is_show_invoice_form}
                 onClose={() => setShowInVoiceForm(false)}
             >
-                <InvoiceForm onClose={() => setShowInVoiceForm(false)} />
+                <InvoiceForm 
+                    onClose={() => setShowInVoiceForm(false)} 
+                    onFormSubmit={() => dispatch(addInvoice())}
+                />
             </Slider>
         </div>
     )

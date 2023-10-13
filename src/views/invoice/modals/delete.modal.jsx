@@ -4,7 +4,7 @@ import { Modal } from "react-bootstrap";
 /* CSS */
 import styles from "./delete.modal.module.scss";
 
-function DeleteModal({show, onHide}){
+function DeleteModal({show, onHide, onSubmit}){
     return (
         <Modal 
             show={show} 
@@ -26,7 +26,7 @@ function DeleteModal({show, onHide}){
                     <button
                         type="button"
                         className={styles.btn_delete}
-                        onClick={onHide}
+                        onClick={onSubmit}
                     >
                         Delete
                     </button>
