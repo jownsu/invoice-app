@@ -49,7 +49,10 @@ const Invoice = () => {
                 is_show={is_show_invoice_form}
                 onClose={() => setIsShowInvoiceForm(false)}
             >
-                <InvoiceForm onClose={() => setIsShowInvoiceForm(false)} />
+                <InvoiceForm 
+                    onClose={() => setIsShowInvoiceForm(false)} 
+                    is_edit
+                />
             </Slider>
             <DeleteModal 
                 show={is_show_delete_nodal}

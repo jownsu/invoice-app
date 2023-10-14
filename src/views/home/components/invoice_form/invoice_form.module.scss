@@ -254,6 +254,10 @@
                         color: $color_primary_1;
                     }
 
+                    &:active{
+                        background-color: rgba($color_primary_1, .1);
+                    }
+
                     &:not(:last-of-type){
                         border-bottom: 1px solid $color_grey_1;
                     }

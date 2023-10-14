@@ -6,6 +6,10 @@
     gap: 1.6rem;
     width: 100%;
 
+    &:not(:last-of-type){
+        margin-bottom: 1.8rem;
+    }
+
     @media only screen and (max-width: $bp_phone){
         width: 100%;
         display: grid;

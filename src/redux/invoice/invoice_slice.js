@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../../assets/data.json";
+import moment from "moment"
 
 const initial_selected_invoice_state = {
     id: "",
@@ -67,35 +68,16 @@ export const invoiceSlice = createSlice({
         addInvoice: (state, action) => {
             let new_invoice = {
                 id: generateRandomID(),
-                created_at: "2021-08-18",
-                payment_due: "2021-08-19",
-                description: "Re-branding",
-                payment_terms: 1,
-                client_name: "Jensen Huang",
-                client_email: "jensenh@mail.com",
-                status: 1,
-                sender_address: {
-                  street: "19 Union Terrace",
-                  city: "London",
-                  post_code: "E1 3EZ",
-                  country: "United Kingdom"
-                },
-                client_address: {
-                  street: "106 Kendell Street",
-                  city: "Sharrington",
-                  post_code: "NR24 5WQ",
-                  country: "United Kingdom"
-                },
-                items: [
-                  {
-                    name: "Brand Guidelines",
-                    quantity: 1,
-                    price: 1800.9,
-                    total: 1800.9
-                  }
-                ],
-                total: 1800.9
-            }
+                ...action.payload,
+            };
+
+            /* Setup payment due based on created at and payment terms */
+            let created_at = moment(new_invoice.created_at, "YYYY-MM-DD");
+            new_invoice.payment_due = created_at.add(new_invoice.payment_terms, "days").format("YYYY-MM-DD");
+
+            /* Setup the overll total items */
+            new_invoice.total = new_invoice.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
             state.invoice_list.push(new_invoice);
         },
         deleteInvoice: (state, action) => {

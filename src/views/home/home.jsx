@@ -57,7 +57,7 @@ const Home = () => {
             >
                 <InvoiceForm 
                     onClose={() => setShowInVoiceForm(false)} 
-                    onFormSubmit={() => dispatch(addInvoice())}
+                    onFormSubmit={(form_data) => dispatch(addInvoice(form_data))}
                 />
             </Slider>
         </div>
