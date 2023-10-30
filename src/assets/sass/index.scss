@@ -93,3 +93,30 @@ body{
         }
     }
 }
+
+.dark_mode{
+    .react-datepicker{
+        background: $color_primary_dark_2;
+
+        &__header{
+            background: $color_primary_dark_2;
+        }
+
+        &__day{
+            color: $color_grey_1;
+
+            &--keyboard-selected{
+                color: $color_primary_1;
+            }
+
+            &:hover{
+                color: $color_primary_1;
+            }
+        }
+
+        &__day--outside-month{
+            color: $color_grey_1;
+            opacity: 0.0814;
+        }
+    }
+}

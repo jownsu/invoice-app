@@ -214,11 +214,6 @@
                 transition: none;
                 height: 100%;
                 justify-content: space-between;
-
-                &:active{
-                    background: none;
-                    color: $color_black;
-                }
     
                 &::after{
                     background: url("/images/icon-arrow-down.svg") no-repeat center;
@@ -520,6 +515,12 @@
                     background: url("/images/icon-active-calendar.svg") no-repeat center;
                 }
             }
+
+            .date_head{
+                .date_text{
+                    color: $color_grey_1;
+                }
+            }
         }
 
         .item_list_container{
@@ -543,6 +544,26 @@
             border: 1px solid $color_primary_dark_2;
             button{
                 color: $color_white;
+            }
+
+            .payment_terms_menu{
+                background: $color_primary_dark_2;
+    
+                .payment_terms_option{
+                    color: $color_grey_1;
+
+                    &:hover{
+                        background: none;
+                    }
+
+                    &:active{
+                        background-color: rgba($color_primary_1, .1);
+                    }
+
+                    &:not(:last-of-type){
+                        border-bottom: 1px solid $color_primary_dark_1;
+                    }
+                }
             }
         }
 
