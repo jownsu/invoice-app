@@ -1,13 +1,18 @@
+/* React */
 import React from "react";
+
+/* Plugins */
 import { useController } from "react-hook-form";
 
+/* CSS */
 import styles from "./item.module.scss";
 
 function Item(props){
     const { name, control, rules, error = false, onDelete } = props;
     const { field } = useController({
         control,
-        name
+        name,
+        rules
     });
 
     const handleOnChange = (event, field_name) => {
@@ -19,7 +24,7 @@ function Item(props){
 
     return (
         <div className={styles.item_container}>
-            <div className={styles.input_group}>
+            <div className={`${styles.input_group} ${error ? styles.input_error : ""}`}>
                 <label htmlFor="item_name">Item name</label>
                 <input
                     id="item_name"
@@ -28,13 +33,14 @@ function Item(props){
                     value={field.value.name}    
                     onChange={(event) => handleOnChange(event, "name")}
                 />
+                {error && <p className={styles.error_msg}>can't be empty</p>}
             </div>
 
             <div className={styles.input_group}>
                 <label htmlFor="quantity">Qty.</label>
                 <input 
                     id="quantity"
-                    type="text" 
+                    type="number"
                     className={styles.quantity}    
                     value={field.value.quantity}
                     onChange={(event) => handleOnChange(event, "quantity")}
@@ -45,7 +51,7 @@ function Item(props){
                 <label htmlFor="price">Price</label>
                 <input 
                     id="price"
-                    type="text" 
+                    type="number"
                     className={styles.price}    
                     value={field.value.price}    
                     onChange={(event) => handleOnChange(event, "price")}

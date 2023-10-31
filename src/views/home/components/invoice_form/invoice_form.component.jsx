@@ -24,36 +24,36 @@ const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
             watch, 
             control, 
             formState: { errors }, 
-            setValue,
-            getValues
+            setValue
         } = useForm({defaultValues: {
-        created_at: moment().format("YYYY-MM-DD"),
-        payment_due: "",
-        description: "",
-        payment_terms: 1,
-        client_name: "",
-        client_email: "",
-        status: 2,
-        sender_address: {
-            street: "",
-            city: "",
-            post_code: "",
-            country: ""
-        },
-        client_address: {
-            street: "",
-            city: "",
-            post_code: "",
-            country: ""
-        },
-        items: [
-            {
-                name: "",
-                quantity: 1,
-                price: 0
-            }
-        ]
-    }});
+                created_at: moment().format("YYYY-MM-DD"),
+                payment_due: "",
+                description: "",
+                payment_terms: 1,
+                client_name: "",
+                client_email: "",
+                status: 2,
+                sender_address: {
+                    street: "",
+                    city: "",
+                    post_code: "",
+                    country: ""
+                },
+                client_address: {
+                    street: "",
+                    city: "",
+                    post_code: "",
+                    country: ""
+                },
+                items: [
+                    {
+                        name: "",
+                        quantity: 1,
+                        price: 0
+                    }
+                ]
+            }}
+    );
 
     const {fields: item_fields, append, remove} = useFieldArray({
         control,
@@ -61,6 +61,7 @@ const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
     });
 
     const handleNewInvoiceSubmit = (form_data) => {
+        console.log("TET");
         onFormSubmit(form_data);
         onClose();
     }
@@ -106,37 +107,41 @@ const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
             <div className={styles.bill_from}>
                 <h4>Bill From</h4>
                 <div className={styles.input_container}>
-                    <div className={styles.input_group}>
+                    <div className={`${styles.input_group} ${errors?.sender_address?.street ? styles.input_error : ""}`}>
                         <label htmlFor="street_address">Street Address</label>
                         <input 
                             type="text" 
                             id="street_address"
-                            {...register("sender_address.street")}
+                            {...register("sender_address.street", { required: true })}
                         />
+                        { errors?.sender_address?.street && <p className={styles.error_msg}>can't be empty</p> }
                     </div>
-                    <div className={styles.input_group}>
+                <div className={`${styles.input_group} ${errors?.sender_address?.city ? styles.input_error : ""}`}>
                         <label htmlFor="city">City</label>
                         <input 
                             type="text" 
                             id="city"
-                            {...register("sender_address.city")}
+                            {...register("sender_address.city", { required: true })}
                         />
+                        { errors?.sender_address?.city && <p className={styles.error_msg}>can't be empty</p> }
                     </div>
-                    <div className={styles.input_group}>
+                <div className={`${styles.input_group} ${errors?.sender_address?.post_code ? styles.input_error : ""}`}>
                         <label htmlFor="post_code">Post Code</label>
                         <input 
                             type="text" 
                             id="post_code"
-                            {...register("sender_address.post_code")}
+                            {...register("sender_address.post_code", { required: true })}
                         />
+                        { errors?.sender_address?.post_code && <p className={styles.error_msg}>can't be empty</p> }
                     </div>
-                    <div className={styles.input_group}>
+                <div className={`${styles.input_group} ${errors?.sender_address?.country ? styles.input_error : ""}`}>
                         <label htmlFor="country">Country</label>
                         <input 
                             type="text" 
                             id="country"
-                            {...register("sender_address.country")}
+                            {...register("sender_address.country", { required: true })}
                         />
+                        { errors?.sender_address?.country && <p className={styles.error_msg}>can't be empty</p> }
                     </div>
                 </div>
             </div>
@@ -144,53 +149,60 @@ const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
             <div className={styles.bill_to}>
                 <h4>Bill To</h4>
                 <div className={styles.input_container}>
-                    <div className={styles.input_group}>
+                <div className={`${styles.input_group} ${errors?.client_name ? styles.input_error : ""}`}>
                         <label htmlFor="client_name">Client's Name</label>
                         <input 
                             type="text" 
                             id="client_name"
-                            {...register("client_name")}
+                            {...register("client_name", { required: true })}
                         />
+                        { errors?.client_name && <p className={styles.error_msg}>can't be empty</p> }
                     </div>
-                    <div className={styles.input_group}>
+                <div className={`${styles.input_group} ${errors?.client_email ? styles.input_error : ""}`}>
                         <label htmlFor="client_email">Client's Email</label>
                         <input 
                             type="text" 
                             id="client_email"
-                            {...register("client_email")}
+                            {...register("client_email", { required: true })}
                         />
+                        { errors?.client_email && <p className={styles.error_msg}>can't be empty</p> }
+
                     </div>
-                    <div className={styles.input_group}>
+                <div className={`${styles.input_group} ${errors?.client_address?.street ? styles.input_error : ""}`}>
                         <label htmlFor="client_street_address">Street Address</label>
                         <input 
                             type="text" 
                             id="post_code"
-                            {...register("client_address.street")}
+                            {...register("client_address.street", { required: true })}
                         />
+                        { errors?.client_address?.street && <p className={styles.error_msg}>can't be empty</p> }
                     </div>
-                    <div className={styles.input_group}>
+                <div className={`${styles.input_group} ${errors?.client_address?.city ? styles.input_error : ""}`}>
                         <label htmlFor="client_city">City</label>
                         <input 
                             type="text" 
                             id="client_city"
-                            {...register("client_address.city")}
+                            {...register("client_address.city", { required: true })}
                         />
+                        { errors?.client_address?.city && <p className={styles.error_msg}>can't be empty</p> }
                     </div>
-                    <div className={styles.input_group}>
+                <div className={`${styles.input_group} ${errors?.client_address?.post_code ? styles.input_error : ""}`}>
                         <label htmlFor="client_post_code">Post Code</label>
                         <input 
                             type="text" 
                             id="client_post_code"
-                            {...register("client_address.post_code")}
+                            {...register("client_address.post_code", { required: true })}
                         />
+                        { errors?.client_address?.post_code && <p className={styles.error_msg}>can't be empty</p> }
                     </div>
-                    <div className={styles.input_group}>
+                <div className={`${styles.input_group} ${errors?.client_address?.country ? styles.input_error : ""}`}>
                         <label htmlFor="client_country">Country</label>
                         <input 
                             type="text" 
                             id="client_country"
-                            {...register("client_address.country")}
+                            {...register("client_address.country", { required: true })}
                         />
+                        { errors?.client_address?.country && <p className={styles.error_msg}>can't be empty</p> }
                     </div>
                 </div>
             </div>
@@ -253,13 +265,14 @@ const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>
-                <div className={styles.input_group}>
+                <div className={`${styles.input_group} ${errors?.description ? styles.input_error : ""}`}>
                     <label htmlFor="project_description">Project Description</label>
                     <input 
                         type="text" 
                         id="project_description"
-                        {...register("description")}
+                        {...register("description", { required: true })}
                     />
+                    { errors?.description && <p className={styles.error_msg}>can't be empty</p> }
                 </div>
             </div>
 
@@ -279,6 +292,12 @@ const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
                             control={control}
                             name={`items.${index}`}
                             onDelete={() => remove(index)}
+                            rules={{
+                                validate: {
+                                    requiredName: (value) => value.name.trim() ? true : false
+                                }
+                            }}
+                            error={errors.items?.[index]}
                         />
                     ))
                 }

@@ -53,6 +53,7 @@
     .input_group{
         display: flex;
         flex-direction: column;
+        position: relative;
 
         label{
             font-size: 1.3rem;
@@ -76,6 +77,28 @@
 
             &:focus{
                 border: 1px solid $color_primary_2 !important;
+            }
+        }
+
+        &.input_error{
+            label{
+                color: $color_red;
+            }
+            input{
+                border-color: $color_red;
+
+                &:focus{
+                    border-color: $color_red !important;
+                }
+            }
+            .error_msg{
+                color: $color_red;
+                position: absolute;
+                right: 0;
+                font-size: 1rem;
+                font-weight: 600;
+                line-height: 1.5rem;
+                letter-spacing: -0.208px;
             }
         }
     }

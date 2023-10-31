@@ -2,7 +2,7 @@
 import React from "react";
 
 /* Plugins */
-import Dropdown from 'react-bootstrap/Dropdown';
+import Dropdown from "react-bootstrap/Dropdown";
 import MediaQuery from "react-responsive";
 
 /* Constants */

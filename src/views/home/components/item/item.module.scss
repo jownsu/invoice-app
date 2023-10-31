@@ -23,6 +23,8 @@
     }
 
     .input_group{
+        position: relative;
+
         label{
             display: none;
             color: $color_grey_3;
@@ -73,6 +75,15 @@
                     width: 100%;
                 }
             }
+
+            &[type="number"]::-webkit-inner-spin-button,
+            &[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            }
+            &[type="number"] {
+            -moz-appearance: textfield; /* Firefox */
+            }
         }
     
         .total{
@@ -85,6 +96,29 @@
             line-height: 4.8rem;
             @media only screen and (max-width: $bp_phone){
                 width: 100%;
+            }
+        }
+
+        &.input_error{
+            label{
+                color: $color_red;
+            }
+            input{
+                border-color: $color_red;
+                
+                &:focus{
+                    border-color: $color_red !important;
+                }
+            }
+            .error_msg{
+                color: $color_red;
+                position: absolute;
+                right: 0;
+                top: -1.5rem;
+                font-size: 1rem;
+                font-weight: 600;
+                line-height: 1.5rem;
+                letter-spacing: -0.208px;
             }
         }
     }
