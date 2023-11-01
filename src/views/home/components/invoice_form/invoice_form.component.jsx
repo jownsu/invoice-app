@@ -1,5 +1,5 @@
 /* React */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 /* Plugins */
 import { useForm, Controller, useFieldArray } from "react-hook-form";
@@ -15,7 +15,43 @@ import styles from "./invoice_form.module.scss";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
+const InvoiceForm = (props) => {
+
+    const {
+        onClose, 
+        is_edit = false, 
+        onFormSubmit = () => {},
+        selected_invoice
+    } = props;
+
+    const default_value = {
+        created_at: moment().format("YYYY-MM-DD"),
+        payment_due: "",
+        description: "",
+        payment_terms: 1,
+        client_name: "",
+        client_email: "",
+        status: 2,
+        sender_address: {
+            street: "",
+            city: "",
+            post_code: "",
+            country: ""
+        },
+        client_address: {
+            street: "",
+            city: "",
+            post_code: "",
+            country: ""
+        },
+        items: [
+            {
+                name: "",
+                quantity: 1,
+                price: 0
+            }
+        ]
+    };
 
     const [is_invoice_date_open, setIsInvoiceDateOpen] = useState(false);
     const { 
@@ -24,41 +60,31 @@ const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
             watch, 
             control, 
             formState: { errors }, 
-            setValue
-        } = useForm({defaultValues: {
-                created_at: moment().format("YYYY-MM-DD"),
-                payment_due: "",
-                description: "",
-                payment_terms: 1,
-                client_name: "",
-                client_email: "",
-                status: 2,
-                sender_address: {
-                    street: "",
-                    city: "",
-                    post_code: "",
-                    country: ""
-                },
-                client_address: {
-                    street: "",
-                    city: "",
-                    post_code: "",
-                    country: ""
-                },
-                items: [
-                    {
-                        name: "",
-                        quantity: 1,
-                        price: 0
-                    }
-                ]
-            }}
+            setValue,
+            setError,
+            clearErrors
+        } = useForm({defaultValues: is_edit ? selected_invoice : default_value}
     );
 
     const {fields: item_fields, append, remove} = useFieldArray({
         control,
         name: "items"
     });
+
+    let items_field = watch("items");
+
+    useEffect(() => {
+        if(!items_field.length){
+            setError("items_empty", {
+                types: {
+                    required: true
+                }
+            });
+        }
+        else{
+            clearErrors("items_empty");
+        }
+    }, [items_field]);
 
     const handleNewInvoiceSubmit = (form_data) => {
         onFormSubmit(form_data);
@@ -320,7 +346,7 @@ const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
                     <div className={styles.form_error_container}>
                         <p>- All fields must be added</p>
                         {
-                            errors?.items && errors?.items?.length &&
+                            errors?.items_empty &&
                                 <p>- An item must be added</p>
                         }
                     </div>
@@ -338,7 +364,7 @@ const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
                             Discard
                         </button>
                         <button type="button" className={styles.btn_draft}>Save as Draft</button>
-                        <button type="button" className={styles.btn_save}>Save & Send</button>
+                        <button type="submit" className={styles.btn_save}>Save & Send</button>
                     </div>
                 )
                 : (

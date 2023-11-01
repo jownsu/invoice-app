@@ -196,7 +196,7 @@
     "description": "Logo Re-design",
     "payment_terms": 7,
     "client_name": "Anita Wainwright",
-    "client_email": "",
+    "client_email": "awainwright@gmail.com",
     "status": 3,
     "sender_address": {
       "street": "19 Union Terrace",
@@ -205,10 +205,10 @@
       "country": "United Kingdom"
     },
     "client_address": {
-      "street": "",
-      "city": "",
-      "post_code": "",
-      "country": ""
+      "street": "Rosal Street",
+      "city": "Washington City",
+      "post_code": "1427",
+      "country": "Japan"
     },
     "items": [
       {

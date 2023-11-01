@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 /* REDUX */
 import { useDispatch, useSelector } from "react-redux";
-import { selectInvoice, deleteInvoice } from "../../redux/invoice/invoice_slice";
+import { selectInvoice, deleteInvoice, editInvoice } from "../../redux/invoice/invoice_slice";
 
 /* Components */
 import BackButton from "./components/back_button/back_button.component";
@@ -51,6 +51,8 @@ const Invoice = () => {
             >
                 <InvoiceForm 
                     onClose={() => setIsShowInvoiceForm(false)} 
+                    selected_invoice={selected_invoice}
+                    onFormSubmit={(form_data) => dispatch(editInvoice(form_data))}
                     is_edit
                 />
             </Slider>

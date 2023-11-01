@@ -80,12 +80,31 @@ export const invoiceSlice = createSlice({
 
             state.invoice_list.push(new_invoice);
         },
+        editInvoice: (state, action) => {
+            let updated_invoice = {...action.payload};
+
+            /* Setup payment due based on created at and payment terms */
+            let created_at = moment(updated_invoice.created_at, "YYYY-MM-DD");
+            updated_invoice.payment_due = created_at.add(updated_invoice.payment_terms, "days").format("YYYY-MM-DD");
+
+            /* Setup the overall total items */
+            updated_invoice.total = updated_invoice.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+            state.selected_invoice = updated_invoice;
+
+            state.invoice_list = state.invoice_list.map(invoice => {
+                if(invoice.id === updated_invoice.id){
+                    return updated_invoice;
+                }
+                return invoice;
+            });
+        },
         deleteInvoice: (state, action) => {
             state.invoice_list = state.invoice_list.filter(invoice => invoice.id !== action.payload.invoice_id);
         }
     }
 });
 
-export const { selectInvoice, addInvoice, deleteInvoice } = invoiceSlice.actions;
+export const { selectInvoice, addInvoice, editInvoice, deleteInvoice } = invoiceSlice.actions;
 
 export default invoiceSlice.reducer;
