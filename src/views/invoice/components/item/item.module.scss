@@ -41,8 +41,10 @@
         color: $color_grey_3;
         flex-shrink: 0;
         width: 10rem;
-        overflow-wrap: break-word;
         word-wrap: break-word; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
         @media only screen and (max-width: $bp_phone){
             width: 100%;

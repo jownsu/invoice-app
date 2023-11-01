@@ -503,6 +503,18 @@
             background: url("/images/icon-arrow-left.svg") no-repeat;
         }
     }
+
+    .form_error_container{
+        margin-top: 3.3rem;
+        margin-bottom: .5rem;
+        p{
+            color: $color_red;
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.5rem;
+            letter-spacing: -.208px;
+        }
+    }
 }
 
 :global(.dark_mode){
@@ -529,6 +541,12 @@
                 background: $color_primary_dark_1;
                 border: 1px solid $color_primary_dark_2;
                 color: $color_white;
+            }
+
+            &.input_error{
+                input{
+                    border-color: $color_red;
+                }
             }
         }
 

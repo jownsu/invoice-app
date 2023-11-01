@@ -61,7 +61,6 @@ const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
     });
 
     const handleNewInvoiceSubmit = (form_data) => {
-        console.log("TET");
         onFormSubmit(form_data);
         onClose();
     }
@@ -220,6 +219,7 @@ const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
                                 onChange={(new_date) => onChange(moment(new_date).format("YYYY-MM-DD"))} 
                                 renderCustomHeader={customDateHeader}
                                 open={is_invoice_date_open}
+                                minDate={new Date()}
                                 readOnly
                                 onClickOutside={() => setIsInvoiceDateOpen(false)}
                                 onInputClick={() => setIsInvoiceDateOpen(true)}
@@ -314,6 +314,17 @@ const InvoiceForm = ({onClose, is_edit = false, onFormSubmit = () => {}}) => {
                     <span className={styles.add_icon}></span>+ Add New Item
                 </button>
             </div>
+
+            {
+                Object.keys(errors).length && 
+                    <div className={styles.form_error_container}>
+                        <p>- All fields must be added</p>
+                        {
+                            errors?.items && errors?.items?.length &&
+                                <p>- An item must be added</p>
+                        }
+                    </div>
+            }
 
             {
                 is_edit

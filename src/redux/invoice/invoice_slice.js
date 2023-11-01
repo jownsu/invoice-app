@@ -68,14 +68,14 @@ export const invoiceSlice = createSlice({
         addInvoice: (state, action) => {
             let new_invoice = {
                 id: generateRandomID(),
-                ...action.payload,
+                ...action.payload
             };
 
             /* Setup payment due based on created at and payment terms */
             let created_at = moment(new_invoice.created_at, "YYYY-MM-DD");
             new_invoice.payment_due = created_at.add(new_invoice.payment_terms, "days").format("YYYY-MM-DD");
 
-            /* Setup the overll total items */
+            /* Setup the overall total items */
             new_invoice.total = new_invoice.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
             state.invoice_list.push(new_invoice);
