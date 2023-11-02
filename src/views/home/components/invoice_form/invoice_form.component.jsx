@@ -363,8 +363,20 @@ const InvoiceForm = (props) => {
                         >
                             Discard
                         </button>
-                        <button type="button" className={styles.btn_draft}>Save as Draft</button>
-                        <button type="submit" className={styles.btn_save}>Save & Send</button>
+                        <button 
+                            type="submit" 
+                            className={styles.btn_draft}
+                            onClick={() => setValue("status", 3)}
+                        >
+                            Save as Draft
+                        </button>
+                        <button 
+                            type="submit" 
+                            className={styles.btn_save}
+                            onClick={() => setValue("status", selected_invoice.status)}
+                        >
+                            Save & Send
+                        </button>
                     </div>
                 )
                 : (
