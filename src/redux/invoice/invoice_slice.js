@@ -101,10 +101,22 @@ export const invoiceSlice = createSlice({
         },
         deleteInvoice: (state, action) => {
             state.invoice_list = state.invoice_list.filter(invoice => invoice.id !== action.payload.invoice_id);
+        },
+        markAsPaidInvoice: (state, action) => {
+            state.invoice_list = state.invoice_list.map(invoice => {
+                if(invoice.id === state.selected_invoice.id){
+                    return {
+                        ...invoice,
+                        status: 1
+                    }
+                }
+                return invoice;
+            });
+            state.selected_invoice.status = 1;
         }
     }
 });
 
-export const { selectInvoice, addInvoice, editInvoice, deleteInvoice } = invoiceSlice.actions;
+export const { selectInvoice, addInvoice, editInvoice, deleteInvoice, markAsPaidInvoice } = invoiceSlice.actions;
 
 export default invoiceSlice.reducer;

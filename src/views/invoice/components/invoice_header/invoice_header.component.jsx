@@ -7,7 +7,7 @@ import InvoiceStatus from "../../../global/invoice_status/invoice_status.compone
 /* CSS */
 import styles from "./invoice_header.module.scss";
 
-const InvoiceHeader = ({invoice_status, onEditClick, onDeleteClick}) => {
+const InvoiceHeader = ({invoice_status, onEditClick, onDeleteClick, onMarkAsPaidClick}) => {
     return (
         <div className={styles.invoice_header}>
             <p className={styles.status_label}>Status</p>
@@ -30,7 +30,11 @@ const InvoiceHeader = ({invoice_status, onEditClick, onDeleteClick}) => {
                 >
                     Delete
                 </button>
-                <button type="button" className={styles.mark_as_paid}>
+                <button 
+                    type="button" 
+                    className={styles.mark_as_paid}
+                    onClick={onMarkAsPaidClick}
+                >
                     Mark as Paid
                 </button>
             </div>

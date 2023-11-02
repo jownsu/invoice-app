@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 /* REDUX */
 import { useDispatch, useSelector } from "react-redux";
-import { selectInvoice, deleteInvoice, editInvoice } from "../../redux/invoice/invoice_slice";
+import { selectInvoice, deleteInvoice, editInvoice, markAsPaidInvoice } from "../../redux/invoice/invoice_slice";
 
 /* Components */
 import BackButton from "./components/back_button/back_button.component";
@@ -43,6 +43,7 @@ const Invoice = () => {
                 invoice_status={selected_invoice.status}
                 onEditClick={() => setIsShowInvoiceForm(true)}     
                 onDeleteClick={() => setIsShowDeleteModal(true)}
+                onMarkAsPaidClick={() => dispatch(markAsPaidInvoice())}
             />
             <InvoiceInfo invoice={selected_invoice} />
             <Slider 
