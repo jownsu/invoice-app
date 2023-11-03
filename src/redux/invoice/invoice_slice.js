@@ -40,23 +40,21 @@ const initial_selected_invoice_state = {
     total: 0
 };
 
+let invoice_list;
+let localstorage_invoice = localStorage.getItem("invoice_data");
+
+if(localstorage_invoice){
+    invoice_list = JSON.parse(localstorage_invoice);
+}
+else{
+    invoice_list = data;
+    localStorage.setItem("invoice_data", JSON.stringify(data));
+}
+
 const initialState = {
-    invoice_list: data,
+    invoice_list,
     selected_invoice: initial_selected_invoice_state
 };
-
-function generateRandomID() {
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let random_letters = "";
-    for (let i = 0; i < 2; i++) {
-        const random_index = Math.floor(Math.random() * letters.length);
-        random_letters += letters.charAt(random_index);
-    }
-  
-    const randomDigits = Math.floor(1000 + Math.random() * 9000);
-    const randomID = random_letters + randomDigits;
-    return randomID;
-  }
 
 export const invoiceSlice = createSlice({
     name: "invoice",
@@ -79,6 +77,8 @@ export const invoiceSlice = createSlice({
             new_invoice.total = new_invoice.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
             state.invoice_list.push(new_invoice);
+
+            saveToLocalStorage(state.invoice_list);
         },
         editInvoice: (state, action) => {
             let updated_invoice = {...action.payload};
@@ -98,9 +98,13 @@ export const invoiceSlice = createSlice({
                 }
                 return invoice;
             });
+
+            saveToLocalStorage(state.invoice_list);
         },
         deleteInvoice: (state, action) => {
             state.invoice_list = state.invoice_list.filter(invoice => invoice.id !== action.payload.invoice_id);
+
+            saveToLocalStorage(state.invoice_list);
         },
         markAsPaidInvoice: (state, action) => {
             state.invoice_list = state.invoice_list.map(invoice => {
@@ -113,6 +117,8 @@ export const invoiceSlice = createSlice({
                 return invoice;
             });
             state.selected_invoice.status = 1;
+
+            saveToLocalStorage(state.invoice_list);
         }
     }
 });
@@ -120,3 +126,21 @@ export const invoiceSlice = createSlice({
 export const { selectInvoice, addInvoice, editInvoice, deleteInvoice, markAsPaidInvoice } = invoiceSlice.actions;
 
 export default invoiceSlice.reducer;
+
+function generateRandomID() {
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let random_letters = "";
+    for (let index = 0; index < 2; index++) {
+        const random_index = Math.floor(Math.random() * letters.length);
+        random_letters += letters.charAt(random_index);
+    }
+  
+    const randomDigits = Math.floor(1000 + Math.random() * 9000);
+    const randomID = random_letters + randomDigits;
+    return randomID;
+}
+
+const saveToLocalStorage = (invoice_data) => {
+    localStorage.setItem("invoice_data", JSON.stringify(invoice_data));
+}
+
