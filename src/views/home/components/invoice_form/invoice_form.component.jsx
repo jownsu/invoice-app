@@ -342,7 +342,7 @@ const InvoiceForm = (props) => {
             </div>
 
             {
-                Object.keys(errors).length && 
+                !!Object.keys(errors).length && 
                     <div className={styles.form_error_container}>
                         <p>- All fields must be added</p>
                         {
